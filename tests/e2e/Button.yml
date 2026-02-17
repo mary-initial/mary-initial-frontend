@@ -1,0 +1,12 @@
+appId: dk.marys.marysuiexample
+name: Button Component
+---
+- launchApp
+- tapOn: Button, ›
+- assertVisible: "No of times clicked: 0"
+- repeat:
+    times: 3
+    commands:
+      - tapOn: Click me!
+- assertVisible: "No of times clicked: 3"
+- takeScreenshot: Button
