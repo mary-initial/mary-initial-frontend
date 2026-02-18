@@ -207,7 +207,7 @@ Common issue that can occur
 selector sent to instance 0x1156901d0'
   ```
   This can be solved by running commands:
-    * `cd tests/example/ios`
+    * `cd <rootDirOfApp>/ios`
     * `rm -rf Pods Podfile.lock build`
     * `pod install`
 

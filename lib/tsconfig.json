@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noImplicitAny": false,
+    "noEmit": false,
+    "strict": false,
+    "target": "esnext",
+    "skipLibCheck": true
+  },
+  "include": [
+    "./index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "../node_modules",
+    "./**/__tests__",
+    "./**/__fixtures__",
+    "./**/__mocks__",
+    "./dist",
+    "./storybook"
+  ],
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": [
+      "node_modules",
+      "tests",
+      "dist"
+    ]
+  },
+  "extends": "expo/tsconfig.base"
+}

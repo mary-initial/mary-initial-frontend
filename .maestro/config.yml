@@ -1,0 +1,4 @@
+testOutputDir: test-results
+flows:
+  - "*"
+  - "mary-ui-app/*"
