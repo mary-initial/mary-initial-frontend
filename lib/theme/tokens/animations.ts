@@ -1,6 +1,6 @@
 // GENERATED from Figma Variables — run npm run tokens:sync to update
 
-import { Easing } from "react-native-reanimated";
+import { Easing } from "react-native";
 
 export const animationTokens = {
   ease: {

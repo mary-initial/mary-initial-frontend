@@ -1,15 +1,11 @@
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import {
+  Animated,
   Pressable,
   StyleSheet,
   Text,
   type ViewStyle
 } from 'react-native';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming
-} from 'react-native-reanimated';
 import type { Theme } from '../../theme';
 import { animationTokens, makeStyles, useTheme } from '../../theme';
 
@@ -36,26 +32,27 @@ export const Button = ({
 }: ButtonProps) => {
   const { theme } = useTheme();
   const styles = useMemo(() => createStyles(theme), [theme]);
-  const pressAnimation = (value: any) => withTiming(value, { duration: animationTokens.duration.xfast, easing: animationTokens.ease.inOut });
+  const pressAnimation = (ref: Animated.Value, toValue: number) =>
+    Animated.timing(ref, { duration: animationTokens.duration.xfast, easing: animationTokens.ease.inOut, useNativeDriver: true, toValue });
 
-  const scale = useSharedValue(1);
-  const overlayOpacity = useSharedValue(0);
+  const scale = useRef(new Animated.Value(1)).current;
+  const overlayOpacity = useRef(new Animated.Value(0)).current;
 
-  const animatedContainerStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: scale.value }],
-  }), [scale]);
-  const animatedOverlayStyle = useAnimatedStyle(() => ({
-    opacity: overlayOpacity.value,
-  }), [overlayOpacity]);
+  const animatedContainerStyle = [{
+    transform: [{ scale }],
+  }];
+  const animatedOverlayStyle = [{
+    opacity: overlayOpacity,
+  }];
 
   const handlePressIn = () => {
-    scale.value = pressAnimation(0.93);
-    overlayOpacity.value = pressAnimation(1);
+    pressAnimation(scale, 0.93).start();
+    pressAnimation(overlayOpacity, 1).start();
   };
 
   const handlePressOut = () => {
-    scale.value = pressAnimation(1);
-    overlayOpacity.value = pressAnimation(0);
+    pressAnimation(scale, 1).start();
+    pressAnimation(overlayOpacity, 0).start();
   };
 
   const containerStyles = [

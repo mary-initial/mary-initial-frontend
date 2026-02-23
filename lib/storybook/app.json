@@ -1,7 +1,7 @@
 {
-  "name": "marys-ui",
-  "slug": "marys-ui",
-  "scheme": "marysui",
+  "name": "marys-ui-storybook",
+  "slug": "marys-ui-storybook",
+  "scheme": "marysuistorybook",
   "version": "1.0.0",
   "orientation": "portrait",
   "icon": "./assets/icon.png",
@@ -12,7 +12,7 @@
     "infoPlist": {
       "ITSAppUsesNonExemptEncryption": false
     },
-    "bundleIdentifier": "dk.marys.marysui"
+    "bundleIdentifier": "dk.marys.marysui.storybook"
   },
   "android": {
     "adaptiveIcon": {
@@ -20,7 +20,7 @@
       "backgroundColor": "#FFFFFF"
     },
     "edgeToEdgeEnabled": true,
-    "package": "dk.marys.marysui"
+    "package": "dk.marys.marysui.storybook"
   },
   "web": {
     "favicon": "./assets/favicon.png",

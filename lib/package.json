@@ -27,27 +27,25 @@
     "dist"
   ],
   "scripts": {
-    "dev": "tsc --watch & npm run storybook:rn & npm run storybook:web",
-    "dev:ios": "tsc --watch & npm run storybook:rn-ios & npm run storybook:web",
-    "dev:android": "tsc --watch & npm run storybook:rn-android & npm run storybook:web",
-    "tokens:sync": "node --loader ts-node/esm scripts/sync-figma-tokens.ts",
+    "dev": "npm run storybook:rn & npm run storybook:web",
+    "dev:ios": "npm run storybook:rn-ios & npm run storybook:web",
+    "dev:android": "npm run storybook:rn-android & npm run storybook:web",
     "build": "tsc",
     "test": "jest && vitest run",
-    "test-e2e": "maestro test",
     "storybook": "storybook dev",
     "storybook:web": "npm run storybook -- --config-dir storybook/.storybook",
-    "storybook:rn": "cd storybook && cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' ENTRY_FILE=storybook/index.js expo start",
-    "storybook:rn-ios": "cd storybook && cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' ENTRY_FILE=storybook/index.js expo start --ios",
-    "storybook:rn-android": "cd storybook && cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' ENTRY_FILE=storybook/index.js expo start --android"
+    "storybook:rn": "cd storybook && expo start",
+    "storybook:rn-ios": "cd storybook && expo start --ios",
+    "storybook:rn-android": "cd storybook && expo start --android",
+    "tokens:sync": "node --loader ts-node/esm scripts/sync-figma-tokens.ts"
   },
   "dependencies": {
+    "expo": "~54.0.33",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
     "react-native-gesture-handler": "~2.28.0",
-    "react-native-reanimated": "~4.1.1",
-    "react-native-web": "~0.21.0",
-    "react-native-worklets": "0.6.1"
+    "react-native-web": "~0.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
@@ -89,7 +87,6 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
-    "react-native-safe-area-context": "~5.6.0",
     "react-native-web": "^0.21.0",
     "react-native-worklets": "0.5.1",
     "react-strict-dom": "^0.0.55",
@@ -106,7 +103,6 @@
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
     "react-native-gesture-handler": "~2.28.0",
-    "react-native-reanimated": "~4.1.1",
     "react-native-web": "~0.21.0"
   },
   "peerDependenciesMeta": {
