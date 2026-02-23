@@ -8,7 +8,7 @@ export default function Index() {
 
   return (
     <PageLayout>
-      <Button text="Click me!" onPress={() => setCount(count + 1)}></Button>
+      <Button text="Click me!" onPress={() => setCount(count + 1)} variant="primary"></Button>
       <Text style={{marginTop: 10}}>No of times clicked: {count}</Text>
     </PageLayout>
   );

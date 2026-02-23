@@ -1,0 +1,2224 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Button Clickable should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "#1c5023",
+            },
+            false,
+            false,
+            false,
+            false,
+            undefined,
+          ]
+        }
+        nativeID="0"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "#1c5023",
+            },
+            false,
+            false,
+            false,
+            false,
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="1"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              {
+                "color": "#ffffff",
+              },
+              false,
+              false,
+              false,
+            ]
+          }
+        >
+          Press me
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button Compact should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            false,
+            false,
+            false,
+            false,
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "rgba(0,0,0,0.2)",
+              "borderRadius": 16,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "overflow": "hidden",
+              "paddingHorizontal": 24,
+              "paddingVertical": 8,
+            },
+            false,
+            undefined,
+          ]
+        }
+        nativeID="2"
+        style={
+          [
+            false,
+            false,
+            false,
+            false,
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "rgba(0,0,0,0.2)",
+              "borderRadius": 16,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "overflow": "hidden",
+              "paddingHorizontal": 24,
+              "paddingVertical": 8,
+            },
+            false,
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="3"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              false,
+              false,
+              false,
+              {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button CompactDisabled should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            false,
+            false,
+            false,
+            false,
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "rgba(0,0,0,0.2)",
+              "borderRadius": 16,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "overflow": "hidden",
+              "paddingHorizontal": 24,
+              "paddingVertical": 8,
+            },
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+          ]
+        }
+        nativeID="4"
+        style={
+          [
+            false,
+            false,
+            false,
+            false,
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "rgba(0,0,0,0.2)",
+              "borderRadius": 16,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "overflow": "hidden",
+              "paddingHorizontal": 24,
+              "paddingVertical": 8,
+            },
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="5"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              false,
+              false,
+              false,
+              {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button Primary should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "#1c5023",
+            },
+            false,
+            false,
+            false,
+            false,
+            undefined,
+          ]
+        }
+        nativeID="6"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "#1c5023",
+            },
+            false,
+            false,
+            false,
+            false,
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="7"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              {
+                "color": "#ffffff",
+              },
+              false,
+              false,
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button PrimaryDisabled should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "#1c5023",
+            },
+            false,
+            false,
+            false,
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+          ]
+        }
+        nativeID="8"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "#1c5023",
+            },
+            false,
+            false,
+            false,
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="9"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              {
+                "color": "#ffffff",
+              },
+              false,
+              false,
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button PrimaryOnColor should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "rgba(0,0,0,0.5)",
+            },
+            false,
+            false,
+            false,
+            false,
+            undefined,
+          ]
+        }
+        nativeID="10"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            {
+              "backgroundColor": "rgba(0,0,0,0.5)",
+            },
+            false,
+            false,
+            false,
+            false,
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="11"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              {
+                "color": "#ffffff",
+              },
+              false,
+              false,
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button Secondary should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            {
+              "backgroundColor": "#fffefd",
+            },
+            false,
+            false,
+            false,
+            undefined,
+          ]
+        }
+        nativeID="12"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            {
+              "backgroundColor": "#fffefd",
+            },
+            false,
+            false,
+            false,
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="13"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              false,
+              {
+                "color": "#211408",
+              },
+              false,
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button SecondaryDisabled should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            {
+              "backgroundColor": "#fffefd",
+            },
+            false,
+            false,
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+          ]
+        }
+        nativeID="14"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            {
+              "backgroundColor": "#fffefd",
+            },
+            false,
+            false,
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="15"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              false,
+              {
+                "color": "#211408",
+              },
+              false,
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button SecondaryOnColor should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            {
+              "backgroundColor": "rgba(255,255,255,0.5)",
+            },
+            false,
+            false,
+            false,
+            undefined,
+          ]
+        }
+        nativeID="16"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            {
+              "backgroundColor": "rgba(255,255,255,0.5)",
+            },
+            false,
+            false,
+            false,
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="17"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              false,
+              {
+                "color": "#ffffff",
+              },
+              false,
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button Tertiary should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            false,
+            {
+              "backgroundColor": "transparent",
+            },
+            false,
+            false,
+            undefined,
+          ]
+        }
+        nativeID="18"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            false,
+            {
+              "backgroundColor": "transparent",
+            },
+            false,
+            false,
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="19"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              false,
+              false,
+              {
+                "color": "#211408",
+              },
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button TertiaryDisabled should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            false,
+            {
+              "backgroundColor": "transparent",
+            },
+            false,
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+          ]
+        }
+        nativeID="20"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "borderRadius": 20,
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "minWidth": 148,
+              "overflow": "hidden",
+              "paddingHorizontal": 40,
+            },
+            false,
+            false,
+            {
+              "backgroundColor": "transparent",
+            },
+            false,
+            {
+              "opacity": 0.5,
+            },
+            undefined,
+            {
+              "transform": [
+                {
+                  "scale": 1,
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "opacity": 0,
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+            ]
+          }
+          nativeID="21"
+          pointerEvents="none"
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              },
+              {
+                "opacity": 0,
+              },
+            ]
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0.20000000298023224,
+                "lineHeight": 17.5,
+                "textAlign": "center",
+              },
+              false,
+              false,
+              {
+                "color": "#211408",
+              },
+              false,
+            ]
+          }
+        >
+          Action text
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -1,20 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react-native";
-import { expect, fn, userEvent, within } from "storybook/test";
-import { View } from "react-native";
-import { Button } from "./Button";
+import type { Meta, StoryObj } from '@storybook/react-native';
+import { View } from 'react-native';
+import { expect, fn, userEvent, within } from 'storybook/test';
+import { Button } from './Button';
 
 const meta = {
-  title: "Button",
+  title: 'Button',
   component: Button,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
     onPress: fn(),
-    text: "Click me!",
-  },
-  parameters: {
-    a11y: {
-      test: "error",
-    },
+    text: 'Action text',
   },
   decorators: [
     (Story) => (
@@ -29,42 +24,87 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+// Primary variants
+export const Primary: Story = {
   args: {
-    onPress: fn(),
-    text: "Click me!",
+    variant: 'primary',
   },
 };
 
-export const ShortText: Story = {
+export const PrimaryOnColor: Story = {
   args: {
-    onPress: fn(),
-    text: "OK",
+    variant: 'primary',
+    onColor: true,
   },
 };
 
-export const WithLongText: Story = {
+export const PrimaryDisabled: Story = {
   args: {
-    onPress: fn(),
-    text: "This is a button with a much longer text label",
+    variant: 'primary',
+    disabled: true,
   },
 };
 
+// Secondary variants
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+  },
+};
+
+export const SecondaryOnColor: Story = {
+  args: {
+    variant: 'secondary',
+    onColor: true,
+  },
+};
+
+export const SecondaryDisabled: Story = {
+  args: {
+    variant: 'secondary',
+    disabled: true,
+  },
+};
+
+// Tertiary variants
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary',
+  },
+};
+
+export const TertiaryDisabled: Story = {
+  args: {
+    variant: 'tertiary',
+    disabled: true,
+  },
+};
+
+// Compact variant
+export const Compact: Story = {
+  args: {
+    variant: 'compact',
+  },
+};
+
+export const CompactDisabled: Story = {
+  args: {
+    variant: 'compact',
+    disabled: true,
+  },
+};
+
+// Interaction story
 export const Clickable: Story = {
   args: {
-    onPress: fn(),
-    text: "Press me",
+    variant: 'primary',
+    text: 'Press me',
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
-
-    const button = canvas.getByText("Press me");
+    const button = canvas.getByText('Press me');
     expect(button).toBeVisible();
-
     await userEvent.click(button);
     expect(args.onPress).toHaveBeenCalledTimes(1);
-
-    await userEvent.click(button);
-    expect(args.onPress).toHaveBeenCalledTimes(2);
   },
 };

@@ -1,0 +1,150 @@
+// GENERATED from Figma Variables — run npm run tokens:sync to update
+
+export const typographyTokens = {
+  displayL: {
+    size: 56,
+    lineheight: 56,
+    letterspacing: -0.25,
+    weight: "Light",
+  },
+  lS: {
+    none: 0,
+    l: 0.5,
+    s: 0.20000000298023224,
+    xXS: 0.10000000149011612,
+    xXXS: -0.25,
+    m: 0.4000000059604645,
+    xS: 0.15000000596046448,
+  },
+  base: {
+    font: "Mari",
+    regular: "Regular",
+    book: "Book",
+    bold: "Bold",
+    light: "Light",
+    poster: "Poster",
+  },
+  displayM: {
+    size: 44,
+    lineheight: 44,
+    letterspacing: -0.25,
+    weight: "Light",
+  },
+  displayS: {
+    size: 36,
+    lineheight: 36,
+    letterspacing: -0.25,
+    weight: "Light",
+  },
+  headlineL: {
+    size: 40,
+    lineheight: 40,
+    letterspacing: -0.25,
+    weight: "Regular",
+  },
+  headlineM: {
+    size: 32,
+    lineheight: 35,
+    letterspacing: -0.25,
+    weight: "Regular",
+  },
+  titleL: {
+    size: 26,
+    lineheight: 28,
+    letterspacing: 0,
+    weight: "Regular",
+  },
+  titleM: {
+    size: 22,
+    lineheight: 20,
+    letterspacing: 0.15000000596046448,
+    weight: "Regular",
+  },
+  titleS: {
+    size: 18,
+    lineheight: 18,
+    letterspacing: 0.10000000149011612,
+    weight: "Bold",
+  },
+  titleSEmphasis: {
+    size: 18,
+    lineheight: 18,
+    letterspacing: 0.10000000149011612,
+    weight: "Poster",
+  },
+  titleXS: {
+    size: 16,
+    lineheight: 16,
+    letterspacing: 0.10000000149011612,
+    weight: "Bold",
+  },
+  titleXSEmphasis: {
+    size: 16,
+    lineheight: 16,
+    letterspacing: 0.10000000149011612,
+    weight: "Poster",
+  },
+  bodyL: {
+    size: 20,
+    lineheight: 26,
+    letterspacing: 0.4000000059604645,
+    weight: "Book",
+  },
+  bodyM: {
+    size: 18,
+    lineheight: 23.5,
+    letterspacing: 0.5,
+    weight: "Book",
+  },
+  bodyS: {
+    size: 16,
+    lineheight: 21,
+    letterspacing: 0.5,
+    weight: "Book",
+  },
+  description: {
+    size: 16,
+    lineheight: 17.5,
+    letterspacing: 0.20000000298023224,
+    weight: "Regular",
+  },
+  descriptionTiny: {
+    size: 14,
+    lineheight: 15.5,
+    letterspacing: 0.5,
+    weight: "Book",
+  },
+  label: {
+    size: 20,
+    lineheight: 20,
+    letterspacing: 0.10000000149011612,
+    weight: "Regular",
+  },
+  headlineMEmphasis: {
+    size: 32,
+    lineheight: 29,
+    letterspacing: 0.10000000149011612,
+    weight: "Poster",
+  },
+  buttons: {
+    size: 16,
+    lineheight: 17.5,
+    letterspacing: 0.20000000298023224,
+    weight: "Regular",
+  },
+  displayMEmphasis: {
+    size: 44,
+    lineheight: 44,
+    letterspacing: 0.10000000149011612,
+    weight: "Poster",
+  },
+  fontWeightsRN: {
+    regular: "400",
+    book: "300",
+    bold: "700",
+    light: "300",
+    poster: "900",
+  },
+} as const;
+
+export type TypographyTokens = typeof typographyTokens;

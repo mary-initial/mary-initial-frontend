@@ -1,0 +1,25 @@
+// GENERATED from Figma Variables — run npm run tokens:sync to update
+
+export const spacingTokens = {
+  '0': 0,
+  '2': 2,
+  '4': 4,
+  '8': 8,
+  '12': 12,
+  '16': 16,
+  '20': 20,
+  '24': 24,
+  '28': 28,
+  '32': 32,
+  '40': 40,
+  '48': 48,
+  '56': 56,
+  '64': 64,
+  '72': 72,
+  '80': 80,
+  '88': 88,
+  '128': 128,
+  '-24': -24,
+} as const;
+
+export type SpacingTokens = typeof spacingTokens;

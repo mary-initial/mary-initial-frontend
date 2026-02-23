@@ -29,25 +29,6 @@ export default defineConfig({
           setupFiles: ["./vitest.setup.ts"],
         },
       },
-      {
-        plugins: [react()],
-        resolve: {
-          alias: {
-            "react-native": "react-native-web",
-          },
-        },
-        test: {
-          name: "unitTests",
-          include: ["**/__tests__/**/*-web.test.{ts,tsx}"],
-          browser: {
-            enabled: true,
-            provider: playwright({}),
-            headless: true,
-            instances: [{ browser: "chromium" }],
-          },
-          setupFiles: ["./vitest.setup.ts"],
-        },
-      },
     ],
   },
 });

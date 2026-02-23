@@ -1,6 +1,7 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { MaryUIProvider } from "@marys-ui";
 import { useRouter } from "expo-router";
 import { ReactNode } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 interface PageLayoutProps {
@@ -12,14 +13,16 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <View style={styles.content}>
-          {children}
+      <MaryUIProvider initialBrand="marys" initialMode="light">
+        <View style={styles.container}>
+          <View style={styles.content}>
+            {children}
+          </View>
+          <Pressable style={styles.backButton} onPress={() => router.back()}>
+            <Text style={styles.backText}>Back</Text>
+          </Pressable>
         </View>
-        <Pressable style={styles.backButton} onPress={() => router.back()}>
-          <Text style={styles.backText}>Back</Text>
-        </Pressable>
-      </View>
+      </MaryUIProvider>
     </SafeAreaView>
   );
 };

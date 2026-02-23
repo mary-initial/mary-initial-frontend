@@ -20,14 +20,13 @@
     "noEmit": false,
     "strict": false,
     "target": "esnext",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["jest", "react-test-renderer"]
   },
   "include": [
     "./index.ts"
   ],
   "exclude": [
-    "node_modules",
-    "../node_modules",
     "./**/__tests__",
     "./**/__fixtures__",
     "./**/__mocks__",

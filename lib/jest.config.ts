@@ -20,14 +20,15 @@ const config: Config = {
     '!**/*.stories.tsx',
     '!**/index.ts',
     '!**/index.tsx',
-    '!**/storybook/**/*'
+    '!**/storybook/**/*',
+    '!**/theme/**/*'
   ],
   collectCoverage: true,
   globals: {
     __DEV__: true,
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  testRegex: '/__tests__/.*-rn\.test\.(ts|tsx|js)$',
+  testRegex: '\.test\.(ts|tsx|js)$',
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
   },

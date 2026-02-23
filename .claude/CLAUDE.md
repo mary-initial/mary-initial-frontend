@@ -27,9 +27,7 @@ Every component in `lib/components/<Name>/` needs exactly these files:
 ├── <Name>.tsx                          Component implementation
 ├── index.tsx                           Named export only
 ├── <Name>.stories.tsx                  CSF3 stories (all variants)
-└── __tests__/
-    ├── <Name>-rn.test.tsx              Jest (React Native)
-    └── <Name>-web.test.tsx             Vitest (web/browser)
+└── <Name>.test.tsx                     Jest (React Native)
 ```
 
 After creating: add to `lib/components/index.ts`.
@@ -37,7 +35,7 @@ After creating: add to `lib/components/index.ts`.
 ## Component Conventions
 - Props interface: `<Name>Props`
 - Styles: `StyleSheet.create()` — never inline style objects
-- No hardcoded color/spacing values — use theme tokens (once theme is established)
+- No hardcoded color/spacing values — always use `theme.*` tokens via `useTheme()`
 - Support `style` prop passthrough (`ViewStyle` or `TextStyle`)
 - Platform variants: `.ios.tsx` / `.android.tsx` suffix when needed
 - `testID` prop for Maestro targeting
@@ -53,8 +51,7 @@ After creating: add to `lib/components/index.ts`.
 - Use `composeStories` from `@storybook/react-native` to import stories as test subjects
 - Test: snapshot + key user interactions + text rendering
 - Parameterize across all stories with `Object.entries(composeStories(stories))`
-- `-rn.test.tsx`: Jest preset `react-native`
-- `-web.test.tsx`: Vitest with `react-native-web` alias
+- `.test.tsx`: Jest preset `react-native`
 
 ## Maestro E2E Tests
 - Location: `.maestro/` (root) + `.maestro/<app-name>/` (app-specific)
@@ -74,11 +71,40 @@ After creating: add to `lib/components/index.ts`.
 - Jest 30 (RN tests) + Vitest 4 (web tests, browser via Playwright)
 - Figma Desktop MCP available — use `get_design_context` for Figma specs
 
+## Theme System
+Three-layer model: **primitive tokens → brand themes → color mode**
+
+| Layer | Files | Purpose |
+|---|---|---|
+| Primitive tokens | `lib/theme/tokens/*.ts` | Raw values from Figma Variables |
+| Brand themes | `lib/theme/themes/{marys,activity,information}.ts` | Semantic color mappings per brand |
+| Color mode | `light` / `dark` key in each brand theme | Resolved via `themes[brand][mode]` |
+
+**Provider:** `<MaryUIProvider initialBrand="marys" initialMode="light">`
+**Hooks:** `useTheme()` → `{ theme, brand, mode, setBrand, setMode, toggleMode }`
+**Style pattern:** `const styles = useMemo(() => createStyles(theme), [theme])` with `makeStyles()`
+**Token sync:** `npm run tokens:sync` — reads Figma Variables JSON → writes `lib/theme/tokens/*.ts`
+**Token reference:** `lib/theme/TOKENS.md` (auto-generated)
+
+### BrandName + ColorMode types
+```ts
+type BrandName = 'marys' | 'activity' | 'information';
+type ColorMode = 'light' | 'dark';
+```
+
+### Available semantic color keys
+`theme.colors.background.{primary,secondary,surface}`
+`theme.colors.text.{primary,secondary,disabled,inverse}`
+`theme.colors.primary.{default,light,dark,contrast}`
+`theme.colors.status.{success,error,warning,info}`
+`theme.colors.border.{default,strong,focus}`
+
 ## Key File Paths
 - `lib/components/Button/Button.tsx` — reference component implementation
 - `lib/components/Button/Button.stories.tsx` — reference stories
-- `lib/components/Button/__tests__/Button-rn.test.tsx` — reference RN test
-- `lib/components/Button/__tests__/Button-web.test.tsx` — reference web test
+- `lib/components/Button/Button.test.tsx` — reference component test
 - `.maestro/mary-ui-app/Button.yml` — reference Maestro flow
 - `lib/components/index.ts` — component barrel exports
 - `lib/index.ts` — library root export
+- `lib/theme/index.ts` — theme system barrel export
+- `lib/theme/TOKENS.md` — design token reference (run tokens:sync to update)

@@ -7,11 +7,13 @@ const libRoot = path.resolve(monorepoRoot, 'lib');
 
 const defaultConfig = getDefaultConfig(projectRoot);
 
-// Watch all files in the monorepo
-defaultConfig.watchFolders = [projectRoot, libRoot];
+defaultConfig.watchFolders = [
+  ...defaultConfig.watchFolders,
+  libRoot
+];
 
 defaultConfig.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, "node_modules"),
+  ...defaultConfig.resolver.nodeModulesPaths,
   path.resolve(monorepoRoot, "node_modules"),
 ];
 
