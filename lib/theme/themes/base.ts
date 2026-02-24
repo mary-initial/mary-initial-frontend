@@ -1,15 +1,13 @@
-import { typographyTokens } from '../tokens/typography';
-import { spacingTokens } from '../tokens/spacing';
-import { radiusTokens } from '../tokens/radius';
-import { shadowTokens } from '../tokens/shadows';
 import { animationTokens } from '../tokens/animations';
+import { radiusTokens } from '../tokens/radius';
+import { spacingTokens } from '../tokens/spacing';
+import { typographyTokens } from '../tokens/typography';
 
 // Non-color tokens shared across ALL brands and modes
 export const baseTheme = {
   typography: typographyTokens,
   spacing: spacingTokens,
   radius: radiusTokens,
-  shadow: shadowTokens,
   animation: animationTokens,
 } as const;
 

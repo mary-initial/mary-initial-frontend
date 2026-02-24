@@ -10,14 +10,16 @@ Apps are react native based using Expo.
 * Lib/ - UI design system library
 
 # TODO
-* Setup Prettier to format code on save + Eslint for lib/
+* Setup Prettier to format code on save (overall) + Eslint for lib/
 * Setup CI/CD
 * Prepare MaryGuiden app for:
   * Backend integration REST + GraphQL
   * CMS provided content + translations
   * CI/CD
-* Add more components to lib
-* Review darkmode
+* Theme: Review darkmode
+* Theme: Setup icons
+* Theme: Add more components
+* Consider responsiveness in lib and app
 
 # Troubleshooting
 Common issue that can occur
