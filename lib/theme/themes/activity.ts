@@ -34,6 +34,7 @@ const light: Theme = {
     },
     interaction: {
       pressed: colorTokens.aktivitet.base.interaction.darkPress,
+      activeFill: colorTokens.aktivitet.base.interaction.activeFill
     },
   },
 };
@@ -71,6 +72,7 @@ const dark: Theme = {
     },
     interaction: {
       pressed: colorTokens.dark.base.interaction.darkPress,
+      activeFill: colorTokens.dark.base.interaction.activeFill
     },
   },
 };

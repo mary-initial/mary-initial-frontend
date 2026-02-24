@@ -21,9 +21,11 @@
   "scripts": {
     "watchman": "watchman watch-del './' ; watchman watch-project './'",
     "test": "npm run test --workspace=lib && maestro test .maestro/",
+    "lib:watch": "npm run watch --workspace=lib",
     "lib:dev": "npm run dev --workspace=lib",
     "lib:ios": "npm run dev:ios --workspace=lib",
     "lib:android": "npm run dev:android --workspace=lib",
+    "mary-guiden:dev": "npm run lib:watch & npm run mary-guiden",
     "mary-guiden": "npm run start --workspace=applications/mary-guiden",
     "mary-guiden:ios": "npm run ios --workspace=applications/mary-guiden",
     "mary-guiden:android": "npm run android --workspace=applications/mary-guiden",

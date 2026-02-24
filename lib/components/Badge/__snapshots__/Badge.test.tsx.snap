@@ -1,0 +1,419 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Badge LargeActiveIcon should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 32,
+            "width": 32,
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "700",
+            "lineHeight": 17.5,
+            "textAlign": "center",
+          }
+        }
+      >
+        ✓
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Badge LargeActiveNone should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 32,
+            "width": 32,
+          },
+          false,
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Badge LargeActiveNumber should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 32,
+            "width": 32,
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "400",
+            "letterSpacing": 0.20000000298023224,
+            "lineHeight": 17.5,
+            "textAlign": "center",
+          }
+        }
+      >
+        1
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Badge LargeDisabledIcon should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 32,
+            "width": 32,
+          },
+          {
+            "opacity": 0.4,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "700",
+            "lineHeight": 17.5,
+            "textAlign": "center",
+          }
+        }
+      >
+        ✓
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Badge LargeDisabledNone should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 32,
+            "width": 32,
+          },
+          {
+            "opacity": 0.4,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Badge LargeDisabledNumber should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 32,
+            "width": 32,
+          },
+          {
+            "opacity": 0.4,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "400",
+            "letterSpacing": 0.20000000298023224,
+            "lineHeight": 17.5,
+            "textAlign": "center",
+          }
+        }
+      >
+        1
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Badge SmallActive should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 16,
+            "width": 16,
+          },
+          false,
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Badge SmallDisabled should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      {
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#347e3e",
+            "borderRadius": 999,
+            "justifyContent": "center",
+          },
+          {
+            "height": 16,
+            "width": 16,
+          },
+          {
+            "opacity": 0.4,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;

@@ -27,6 +27,7 @@
     "dist"
   ],
   "scripts": {
+    "watch": "tsc --watch",
     "dev": "npm run storybook:rn & npm run storybook:web",
     "dev:ios": "npm run storybook:rn-ios & npm run storybook:web",
     "dev:android": "npm run storybook:rn-android & npm run storybook:web",

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import type { Theme } from '../../theme';
-import { colorTokens, makeStyles, useTheme } from '../../theme';
+import { makeStyles, useTheme } from '../../theme';
 
 export type BadgeSize = 'large' | 'small';
 export type BadgeContent = 'icon' | 'number' | 'none';
@@ -53,8 +53,7 @@ const createStyles = makeStyles((theme: Theme) =>
       borderRadius: theme.radius.pillCircle,
       alignItems: 'center',
       justifyContent: 'center',
-      // TODO: surface theme.colors.interaction.activeFill to the semantic theme layer
-      backgroundColor: colorTokens.marys.base.interaction.activeFill,
+      backgroundColor: theme.colors.interaction.activeFill
     },
     large: {
       width: theme.spacing[32],

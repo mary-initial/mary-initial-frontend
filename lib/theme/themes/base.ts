@@ -43,6 +43,7 @@ export type ThemeColors = {
   };
   interaction: {
     pressed: string;
+    activeFill: string;
   };
 };
 
