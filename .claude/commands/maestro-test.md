@@ -6,7 +6,7 @@ If the user hasn't specified the app and feature, ask:
 
 ## App IDs
 - `mary-ui-app` → `dk.marys.marysuiexample`
-- `mary-guiden` → `com.anonymous.mary-guiden`
+- `mary-guiden` → `dk.marys.maryguiden`
 
 ## Steps
 

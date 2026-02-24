@@ -7,14 +7,12 @@ If the user hasn't specified a component, ask for the component name or file pat
 1. Read all files for the component:
    - `lib/components/<Name>/<Name>.tsx`
    - `lib/components/<Name>/<Name>.stories.tsx`
-   - `lib/components/<Name>/__tests__/<Name>-rn.test.tsx`
-   - `lib/components/<Name>/__tests__/<Name>-web.test.tsx`
+   - `lib/components/<Name>.test.tsx`
 
 2. Review against this checklist:
 
 ### Implementation
 - [ ] Props interface exported and named `<Name>Props`
-- [ ] `testID?: string` prop included
 - [ ] `style` passthrough prop (ViewStyle/TextStyle)
 - [ ] No hardcoded color/spacing values (should use theme tokens)
 - [ ] `StyleSheet.create()` used (no inline style objects)
@@ -37,7 +35,7 @@ If the user hasn't specified a component, ask for the component name or file pat
 - [ ] Snapshot test included
 - [ ] User interactions tested (not just renders)
 - [ ] All stories parameterized via `composeStories`
-- [ ] Both `-rn.test.tsx` and `-web.test.tsx` exist
+- [ ] `.test.tsx` test file exist
 
 3. Output a prioritized list of improvements with:
    - Priority: High / Medium / Low

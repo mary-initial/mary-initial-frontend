@@ -58,9 +58,8 @@ After creating: add to `lib/components/index.ts`.
 - Config: `.maestro/config.yml` (already configured)
 - App IDs:
   - `mary-ui-app` → `dk.marys.marysuiexample`
-  - `mary-guiden` → `com.anonymous.mary-guiden`
+  - `mary-guiden` → `dk.marys.maryguiden`
 - Pattern: `launchApp` → navigate → interact → `assertVisible` → `takeScreenshot`
-- Components need `testID` props for reliable element targeting
 
 ## Tech Stack
 - React Native 0.81.5, New Architecture enabled

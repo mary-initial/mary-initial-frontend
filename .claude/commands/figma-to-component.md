@@ -24,7 +24,7 @@ Transfer a Figma design spec to a marys-ui component with stories and tests.
    One story per Figma variant/state. Story names should match Figma frame/variant names.
 
 5. **Create tests**
-   Both `-rn.test.tsx` and `-web.test.tsx` covering all stories.
+   A single test file ending with `.test.tsx` covering all stories.
 
 6. **Output a summary** including:
    - Component created: `lib/components/<Name>/`
