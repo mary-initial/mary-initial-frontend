@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "codegen": "EXPO_PUBLIC_API_URL=http://localhost:8000/api/graphql graphql-codegen --config codegen.yml" // injecting API url might use dotenv later
+    "codegen": "EXPO_PUBLIC_API_URL=http://localhost:8000/api/graphql graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "^4.1.6",
