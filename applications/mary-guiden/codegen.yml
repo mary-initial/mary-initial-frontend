@@ -1,0 +1,14 @@
+schema: ${EXPO_PUBLIC_API_URL}
+documents:
+  - "**/*.tsx"
+  - "**/*.ts"
+  - "!**/node_modules/**"
+  - "!./src/__generated__/**"
+  - "!**/*.d.ts" # exclude declaration files
+  - "!**/codegen.ts" # exclude the codegen config itself
+generates:
+  ./src/__generated__/:
+    preset: client
+    plugins: []
+config:
+  ignoreNoDocuments: true # don't fail if no queries found in a file

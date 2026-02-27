@@ -1,15 +1,15 @@
-import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
+import { graphql } from "@generated/gql";
 import { Button } from "@marys-ui";
 import { Text, View } from "react-native";
 
-const GET_GREETING = gql`
+const GET_GREETING = graphql(`
   query GetGreeting {
     greeting {
       message
     }
   }
-`;
+`);
 
 export default function Index() {
   const { loading, error, data } = useQuery(GET_GREETING);
