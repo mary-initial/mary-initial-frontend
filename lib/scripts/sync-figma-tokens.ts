@@ -128,6 +128,7 @@ function walkTokens(
   modeName: string | null,
   json: FigmaTokensJson,
   skipTypes: string[] = ['boolean'],
+  customFormatter: (v: string | number | null) => any = (v) => v
 ): Record<string, unknown> {
   const result: Record<string, unknown> = {};
 
@@ -142,7 +143,7 @@ function walkTokens(
       if (modeName === null) {
         // Flat leaf (Motion)
         if (typeof child.value === 'string' || typeof child.value === 'number') {
-          resolvedValue = child.value;
+          resolvedValue = customFormatter(child.value);
         }
       } else if (typeof child.value === 'object' && child.value !== null && !Array.isArray(child.value)) {
         // Mode-keyed leaf
@@ -151,7 +152,7 @@ function walkTokens(
         if (typeof modeValue === 'string' && modeValue.startsWith('{')) {
           resolvedValue = resolveAlias(modeValue, modeName, json);
         } else {
-          resolvedValue = modeValue as string | number;
+          resolvedValue = customFormatter(modeValue as string | number);
         }
       }
 
@@ -160,7 +161,7 @@ function walkTokens(
       }
     } else {
       // Nested node — recurse
-      const nested = walkTokens(child as FlatTokenNode, modeName, json, skipTypes);
+      const nested = walkTokens(child as FlatTokenNode, modeName, json, skipTypes, customFormatter);
       if (Object.keys(nested).length > 0) {
         result[key] = nested;
       }
@@ -178,6 +179,7 @@ function objectToTs(obj: Record<string, unknown>, indent = 2): string {
     // Quote keys that start with a digit or contain hyphens/spaces
     const key = /^\d|[-\s]/.test(k) ? `'${k}'` : k;
     if (typeof v === 'object' && v !== null) {
+      if (Array.isArray(v)) return `${pad}${key}: [${v.join(', ')}],`
       return `${pad}${key}: ${objectToTs(v as Record<string, unknown>, indent + 2)},`;
     }
     return `${pad}${key}: ${JSON.stringify(v)},`;
@@ -331,7 +333,16 @@ function main() {
   if (!motionNode) throw new Error('Motion collection not found in figma-tokens.json');
 
   // Motion values are flat (no mode keys) — pass null as modeName
-  const animationTokens = walkTokens(motionNode, null, json);
+  const animationFormatter = (v: string | number | null) => {
+    // Convert cubic-bezier curves to arrays
+    if (!v || typeof v !== 'string' || !v.startsWith('cubic-bezier')) return v;
+    
+    const value = v.match(/\d{1,2}(\.\d{1,2})?/g)
+    if (!value?.length) return v;
+    return value.map((v) => parseFloat(v));
+  }
+  const animationTokens = walkTokens(motionNode, null, json, undefined, animationFormatter);
+
   writeTokenFile('animations.ts', 'animationTokens', 'AnimationTokens', animationTokens);
   mdSections['Motion'] = animationTokens;
 

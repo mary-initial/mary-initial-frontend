@@ -38,7 +38,7 @@
     "storybook:rn": "cd storybook && expo start",
     "storybook:rn-ios": "cd storybook && expo start --ios",
     "storybook:rn-android": "cd storybook && expo start --android",
-    "tokens:sync": "node --loader ts-node/esm scripts/sync-figma-tokens.ts"
+    "tokens:sync": "node scripts/sync-figma-tokens.ts"
   },
   "dependencies": {
     "expo": "~54.0.33",
