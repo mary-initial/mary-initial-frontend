@@ -53,7 +53,7 @@ const createStyles = makeStyles((theme: Theme) =>
       borderRadius: theme.radius.pillCircle,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: theme.colors.interaction.activeFill
+      backgroundColor: theme.colors.base.interaction.activeFill
     },
     large: {
       width: theme.spacing[32],
@@ -67,14 +67,14 @@ const createStyles = makeStyles((theme: Theme) =>
       opacity: 0.4,
     },
     iconText: {
-      color: theme.colors.text.inverse,
+      color: theme.colors.icon.impact.default,
       fontSize: theme.typography.description.size,
       lineHeight: theme.typography.description.lineheight,
       fontWeight: theme.typography.fontWeightsRN.bold,
       textAlign: 'center',
     },
     numberText: {
-      color: theme.colors.text.inverse,
+      color: theme.colors.icon.impact.default,
       fontSize: theme.typography.description.size,
       lineHeight: theme.typography.description.lineheight,
       letterSpacing: theme.typography.description.letterspacing,

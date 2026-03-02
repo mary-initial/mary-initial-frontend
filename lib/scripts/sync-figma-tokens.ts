@@ -128,7 +128,8 @@ function walkTokens(
   modeName: string | null,
   json: FigmaTokensJson,
   skipTypes: string[] = ['boolean'],
-  customFormatter: (v: string | number | null) => any = (v) => v
+  customFormatter: (v: string | number | null) => any = (v) => v,
+  fallbackModeName: string | null = null
 ): Record<string, unknown> {
   const result: Record<string, unknown> = {};
 
@@ -147,7 +148,10 @@ function walkTokens(
         }
       } else if (typeof child.value === 'object' && child.value !== null && !Array.isArray(child.value)) {
         // Mode-keyed leaf
-        const modeValue = (child.value as Record<string, unknown>)[modeName];
+        let modeValue = (child.value as Record<string, unknown>)[modeName];
+        if (modeValue === undefined && fallbackModeName !== null) {
+          modeValue = (child.value as Record<string, unknown>)[fallbackModeName];
+        }
         if (modeValue === undefined) continue;
         if (typeof modeValue === 'string' && modeValue.startsWith('{')) {
           resolvedValue = resolveAlias(modeValue, modeName, json);
@@ -272,61 +276,81 @@ function main() {
     viden: 'Viden',
   };
 
+  const screenModes: Record<string, string> = {
+    mobile: 'Mobile',
+    tablet: 'Tablet',
+    desktop: 'Desktop'
+  }
+
   const colorTokens: Record<string, unknown> = {};
   for (const [tokenKey, modeName] of Object.entries(colorModes)) {
     colorTokens[tokenKey] = walkTokens(colorsNode, modeName, json);
   }
   writeTokenFile('colors.ts', 'colorTokens', 'ColorTokens', colorTokens);
-  mdSections['Colors (marys mode)'] = colorTokens['marys'] as Record<string, unknown>;
 
   // ── Spacing ────────────────────────────────────────────────────────────────
   const spacingNode = json['Spacing'] as Record<string, FlatTokenNode>;
   if (!spacingNode) throw new Error('Spacing collection not found in figma-tokens.json');
-
+  
   // base → spacing.ts (numeric scale, value-as-key)
   const spacingBase = spacingNode['base'];
   if (!spacingBase) throw new Error('Spacing.base not found');
-  const spacingTokens = walkTokens(spacingBase as Record<string, FlatTokenNode>, 'Mobile', json);
+
+  const spacingTokens: Record<string, unknown> = {};
+  let prevSpacingModeName: string | null = null;
+  for (const [tokenKey, modeName] of Object.entries(screenModes)) {
+    spacingTokens[tokenKey] = walkTokens(spacingBase as Record<string, FlatTokenNode>, modeName, json, undefined, undefined, prevSpacingModeName);
+    prevSpacingModeName = modeName;
+  }
   writeTokenFile('spacing.ts', 'spacingTokens', 'SpacingTokens', spacingTokens);
-  mdSections['Spacing'] = spacingTokens;
 
   // corner radius → radius.ts (semantic names, camelCased)
   const cornerRadiusNode = spacingNode['corner radius'];
   if (!cornerRadiusNode) throw new Error('Spacing["corner radius"] not found');
-  const radiusTokens = walkTokens(cornerRadiusNode as Record<string, FlatTokenNode>, 'Mobile', json);
+
+  const radiusTokens: Record<string, unknown> = {};
+  let prevRadiusModeName: string | null = null;
+  for (const [tokenKey, modeName] of Object.entries(screenModes)) {
+    radiusTokens[tokenKey] = walkTokens(cornerRadiusNode as Record<string, FlatTokenNode>, modeName, json, undefined, undefined, prevRadiusModeName);
+    prevRadiusModeName = modeName;
+  }
+
   writeTokenFile('radius.ts', 'radiusTokens', 'RadiusTokens', radiusTokens);
-  mdSections['Radius'] = radiusTokens;
 
   // ── Type ───────────────────────────────────────────────────────────────────
   const typeNode = json['Type'] as Record<string, FlatTokenNode>;
   if (!typeNode) throw new Error('Type collection not found in figma-tokens.json');
 
-  const typographyTokens = walkTokens(typeNode, 'Mobile', json);
+  const typographyTokens: Record<string, unknown> = {};
+  let prevTypeModeName: string | null = null;
+  for (const [tokenKey, modeName] of Object.entries(screenModes)) {
+    typographyTokens[tokenKey] = walkTokens(typeNode, modeName, json, undefined, undefined, prevTypeModeName);
+    prevTypeModeName = modeName;
 
-  // Map Figma font variant names to React Native-compatible fontWeight values.
-  // Figma uses weight names ("Bold", "Regular") that don't match RN's accepted values.
-  const figmaWeightToRN: Record<string, string> = {
-    Regular: '400',
-    Book: '300',
-    Bold: '700',
-    Light: '300',
-    Poster: '900',
-  };
-  const baseFonts = (typographyTokens as Record<string, unknown>)['base'] as Record<string, unknown> | undefined;
-  if (baseFonts) {
-    const fontWeightsRN: Record<string, string> = {};
-    for (const [key, value] of Object.entries(baseFonts)) {
-      if (typeof value === 'string' && figmaWeightToRN[value]) {
-        fontWeightsRN[key] = figmaWeightToRN[value];
+    // Map Figma font variant names to React Native-compatible fontWeight values.
+    // Figma uses weight names ("Bold", "Regular") that don't match RN's accepted values.
+    const figmaWeightToRN: Record<string, string> = {
+      Regular: '400',
+      Book: '300',
+      Bold: '700',
+      Light: '300',
+      Poster: '900',
+    };
+    const baseFonts = (typographyTokens[tokenKey] as Record<string, unknown>)['base'] as Record<string, unknown> | undefined;
+    if (baseFonts) {
+      const fontWeightsRN: Record<string, string> = {};
+      for (const [key, value] of Object.entries(baseFonts)) {
+        if (typeof value === 'string' && figmaWeightToRN[value]) {
+          fontWeightsRN[key] = figmaWeightToRN[value];
+        }
       }
-    }
-    if (Object.keys(fontWeightsRN).length > 0) {
-      (typographyTokens as Record<string, unknown>)['fontWeightsRN'] = fontWeightsRN;
+      if (Object.keys(fontWeightsRN).length > 0) {
+        (typographyTokens[tokenKey] as Record<string, unknown>)['fontWeightsRN'] = fontWeightsRN;
+      }
     }
   }
 
   writeTokenFile('typography.ts', 'typographyTokens', 'TypographyTokens', typographyTokens);
-  mdSections['Typography (Mobile)'] = typographyTokens;
 
   // ── Motion ─────────────────────────────────────────────────────────────────
   const motionNode = json['Motion'] as Record<string, FlatTokenNode>;

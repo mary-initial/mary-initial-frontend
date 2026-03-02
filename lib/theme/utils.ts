@@ -1,5 +1,11 @@
 import { StyleSheet } from 'react-native';
-import type { Theme } from './types';
+import { BrandMap } from './theme';
+import { animationTokens } from './tokens/animations';
+import { colorTokens } from './tokens/colors';
+import { radiusTokens } from './tokens/radius';
+import { spacingTokens } from './tokens/spacing';
+import { typographyTokens } from './tokens/typography';
+import type { BrandName, ScreenMode, SurfaceMode, Theme } from './types';
 
 /**
  * Creates a StyleSheet factory tied to a theme object.
@@ -22,4 +28,31 @@ export function makeStyles<T extends StyleSheet.NamedStyles<T>>(
   factory: (theme: Theme) => T,
 ): (theme: Theme) => T {
   return factory;
+}
+
+/**
+ * Resolve surface mode based on wether the element is on color
+ * @param onColor wether the element is on color
+ * @returns the surface mode
+ */
+export function resolveSurfaceMode(onColor: boolean): SurfaceMode {
+  return onColor ? 'impact' : 'surface'
+}
+
+export const resolveTheme = (brandName: BrandName, screenMode: ScreenMode): Theme => {
+  const brandNameKey = BrandMap[brandName];
+
+  const animations = animationTokens;
+  const colors = colorTokens[brandNameKey];
+  const spacing = spacingTokens[screenMode];
+  const radius = radiusTokens[screenMode];
+  const typography = typographyTokens[screenMode];
+
+  return {
+    animations,
+    colors,
+    spacing,
+    radius,
+    typography
+  }
 }

@@ -1,45 +1,74 @@
-import React, { createContext, useContext, useState } from 'react';
-import { useColorScheme } from 'react-native';
-import { marysTheme } from './themes/marys';
-import { activityTheme } from './themes/activity';
-import { informationTheme } from './themes/information';
-import type { BrandName, ColorMode, Theme, ThemeContextValue } from './types';
-
-const themes = {
-  marys: marysTheme,
-  activity: activityTheme,
-  information: informationTheme,
-} as const;
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { Dimensions, useColorScheme } from 'react-native';
+import { createThemeStyles, ThemeStyles } from './theme';
+import { ScreenMode, Theme, type BrandName, type ColorMode, type ThemeContextValue } from './types';
+import { resolveTheme } from './utils';
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export interface MaryUIProviderProps {
   children: React.ReactNode;
   /** Brand context for this app/screen. Defaults to 'marys'. */
-  initialBrand?: BrandName;
+  brandName?: BrandName;
   /** Override the color mode. Defaults to system preference. */
-  initialMode?: ColorMode;
+  colorModeOverride?: ColorMode;
+  /** Override the screen mode. Defaults to device dimensions */
+  screenModeOverride?: ScreenMode;
 }
+
+const windowDimensions = Dimensions.get('window');
+const screenDimensions = Dimensions.get('screen');
 
 export function MaryUIProvider({
   children,
-  initialBrand = 'marys',
-  initialMode,
+  brandName = 'marys',
+  colorModeOverride,
+  screenModeOverride
 }: MaryUIProviderProps) {
   const systemScheme = useColorScheme();
-  const [brand, setBrand] = useState<BrandName>(initialBrand);
+  const [brand, setBrand] = useState<BrandName>(brandName);
   const [mode, setMode] = useState<ColorMode>(
-    initialMode ?? (systemScheme === 'dark' ? 'dark' : 'light'),
+    colorModeOverride ?? (systemScheme === 'dark' ? 'dark' : 'light'),
   );
+  const [dimensions, setDimensions] = useState({
+    window: windowDimensions,
+    screen: screenDimensions,
+  });
+  const resolveScreenMode = () => {
+    if (!!screenModeOverride) return screenModeOverride;
+    
+    if (dimensions.window.width < 744)
+      return 'mobile';
+    else if (dimensions.window.width < 1280)
+      return 'tablet';
+    else
+      return 'desktop';
+  }
+  const [screenMode, setScreenMode] = useState<ScreenMode>(resolveScreenMode());
+  const [theme, setTheme] = useState<Theme | null>(resolveTheme(brandName, screenMode));
 
-  const theme: Theme = themes[brand][mode];
+  // Global styles resolved by theme and screen mode
+  const themeStyles = useMemo(() => createThemeStyles(theme), [theme])
+
+  // Window size listener
+  useEffect(() => {
+    const subscription = Dimensions.addEventListener(
+      'change',
+      ({window, screen}) => {
+        setDimensions({window, screen});
+        setScreenMode(resolveScreenMode());
+      },
+    );
+    return () => subscription?.remove();
+  });
 
   const value: ThemeContextValue = {
     theme,
+    themeStyles,
     brand,
     mode,
-    setBrand,
-    setMode,
+    screenMode,
+    setTheme,
     toggleMode: () => setMode((m) => (m === 'light' ? 'dark' : 'light')),
   };
 
@@ -48,13 +77,20 @@ export function MaryUIProvider({
 
 export function useTheme(): ThemeContextValue {
   const context = useContext(ThemeContext);
+
   if (!context) {
     throw new Error('useTheme must be used within a MaryUIProvider');
   }
+
   return context;
 }
+export function useThemeStyle(themeStyle: keyof ThemeStyles): ThemeStyles[typeof themeStyle] {
+  const context = useContext(ThemeContext); 
 
-/** Convenience hook — returns only the semantic color tokens for the active theme. */
-export function useThemeColors() {
-  return useTheme().theme.colors;
-}
+  if (!context) {
+    throw new Error('useTheme must be used within a MaryUIProvider');
+  }
+
+  const themeStyles = context.themeStyles;
+  return themeStyles[themeStyle];
+} 
