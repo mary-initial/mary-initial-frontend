@@ -52,16 +52,16 @@ exports[`Button Clickable should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
+            "alignSelf": "baseline",
             "backgroundColor": "#1c5023",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -94,18 +94,15 @@ exports[`Button Clickable should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#ffffff",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              {
-                "color": "#ffffff",
-              },
-              false,
-              false,
-              false,
             ]
           }
         >
@@ -169,20 +166,21 @@ exports[`Button Compact should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
-            "backgroundColor": "rgba(0,0,0,0.2)",
+            "alignSelf": "baseline",
+            "backgroundColor": "rgba(0, 0, 0, 0.2)",
             "borderRadius": 16,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
+            "minWidth": 148,
             "overflow": "hidden",
-            "paddingHorizontal": 24,
+            "paddingHorizontal": 16,
             "paddingVertical": 8,
             "transform": [
               {
@@ -211,17 +209,14 @@ exports[`Button Compact should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#ffffff",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
-              },
-              false,
-              false,
-              false,
-              {
-                "color": "#ffffff",
               },
             ]
           }
@@ -286,21 +281,22 @@ exports[`Button CompactDisabled should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
-            "backgroundColor": "rgba(0,0,0,0.2)",
+            "alignSelf": "baseline",
+            "backgroundColor": "rgba(0, 0, 0, 0.2)",
             "borderRadius": 16,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
+            "minWidth": 148,
             "opacity": 0.5,
             "overflow": "hidden",
-            "paddingHorizontal": 24,
+            "paddingHorizontal": 16,
             "paddingVertical": 8,
             "transform": [
               {
@@ -329,17 +325,14 @@ exports[`Button CompactDisabled should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#ffffff",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
-              },
-              false,
-              false,
-              false,
-              {
-                "color": "#ffffff",
               },
             ]
           }
@@ -404,16 +397,16 @@ exports[`Button Primary should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
+            "alignSelf": "baseline",
             "backgroundColor": "#1c5023",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -446,18 +439,15 @@ exports[`Button Primary should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#ffffff",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              {
-                "color": "#ffffff",
-              },
-              false,
-              false,
-              false,
             ]
           }
         >
@@ -521,16 +511,16 @@ exports[`Button PrimaryDisabled should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
+            "alignSelf": "baseline",
             "backgroundColor": "#1c5023",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -564,18 +554,15 @@ exports[`Button PrimaryDisabled should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#ffffff",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              {
-                "color": "#ffffff",
-              },
-              false,
-              false,
-              false,
             ]
           }
         >
@@ -639,16 +626,16 @@ exports[`Button PrimaryOnColor should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
-            "backgroundColor": "rgba(0,0,0,0.5)",
+            "alignSelf": "baseline",
+            "backgroundColor": "rgba(0, 0, 0, 0.5)",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -681,18 +668,15 @@ exports[`Button PrimaryOnColor should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#ffffff",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              {
-                "color": "#ffffff",
-              },
-              false,
-              false,
-              false,
             ]
           }
         >
@@ -756,16 +740,16 @@ exports[`Button Secondary should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
+            "alignSelf": "baseline",
             "backgroundColor": "#fffefd",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -798,18 +782,15 @@ exports[`Button Secondary should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#1c1c1c",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              false,
-              {
-                "color": "#211408",
-              },
-              false,
-              false,
             ]
           }
         >
@@ -873,16 +854,16 @@ exports[`Button SecondaryDisabled should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
+            "alignSelf": "baseline",
             "backgroundColor": "#fffefd",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -916,18 +897,15 @@ exports[`Button SecondaryDisabled should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#1c1c1c",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              false,
-              {
-                "color": "#211408",
-              },
-              false,
-              false,
             ]
           }
         >
@@ -991,16 +969,16 @@ exports[`Button SecondaryOnColor should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
-            "backgroundColor": "rgba(255,255,255,0.5)",
+            "alignSelf": "baseline",
+            "backgroundColor": "rgba(255, 255, 255, 0.5)",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -1033,18 +1011,15 @@ exports[`Button SecondaryOnColor should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#1c1c1c",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              false,
-              {
-                "color": "#ffffff",
-              },
-              false,
-              false,
             ]
           }
         >
@@ -1108,16 +1083,16 @@ exports[`Button Tertiary should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
+            "alignSelf": "baseline",
             "backgroundColor": "transparent",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -1150,18 +1125,15 @@ exports[`Button Tertiary should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#1c1c1c",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              false,
-              false,
-              {
-                "color": "#211408",
-              },
-              false,
             ]
           }
         >
@@ -1225,16 +1197,16 @@ exports[`Button TertiaryDisabled should match snapshot 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      role="button"
     >
       <View
         collapsable={false}
         style={
           {
-            "alignItems": "center",
-            "alignSelf": "center",
+            "alignSelf": "baseline",
             "backgroundColor": "transparent",
             "borderRadius": 20,
-            "flexDirection": "row",
+            "gap": 8,
             "height": 56,
             "justifyContent": "center",
             "minWidth": 148,
@@ -1268,18 +1240,15 @@ exports[`Button TertiaryDisabled should match snapshot 1`] = `
           style={
             [
               {
+                "color": "#1c1c1c",
+              },
+              {
                 "fontSize": 16,
                 "fontWeight": "400",
                 "letterSpacing": 0.20000000298023224,
                 "lineHeight": 17.5,
                 "textAlign": "center",
               },
-              false,
-              false,
-              {
-                "color": "#211408",
-              },
-              false,
             ]
           }
         >

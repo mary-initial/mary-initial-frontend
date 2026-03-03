@@ -43,7 +43,7 @@ exports[`Badge LargeActiveIcon should match snapshot 1`] = `
       <Text
         style={
           {
-            "color": "#ffffff",
+            "color": "#fffefd",
             "fontSize": 16,
             "fontWeight": "700",
             "lineHeight": 17.5,
@@ -145,7 +145,7 @@ exports[`Badge LargeActiveNumber should match snapshot 1`] = `
       <Text
         style={
           {
-            "color": "#ffffff",
+            "color": "#fffefd",
             "fontSize": 16,
             "fontWeight": "400",
             "letterSpacing": 0.20000000298023224,
@@ -206,7 +206,7 @@ exports[`Badge LargeDisabledIcon should match snapshot 1`] = `
       <Text
         style={
           {
-            "color": "#ffffff",
+            "color": "#fffefd",
             "fontSize": 16,
             "fontWeight": "700",
             "lineHeight": 17.5,
@@ -312,7 +312,7 @@ exports[`Badge LargeDisabledNumber should match snapshot 1`] = `
       <Text
         style={
           {
-            "color": "#ffffff",
+            "color": "#fffefd",
             "fontSize": 16,
             "fontWeight": "400",
             "letterSpacing": 0.20000000298023224,

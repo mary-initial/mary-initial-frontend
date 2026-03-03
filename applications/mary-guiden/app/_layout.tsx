@@ -11,7 +11,7 @@ export default function RootLayout() {
 
   return (
     <ApolloProvider client={client}>
-      <MaryUIProvider initialBrand="marys" initialMode="light">
+      <MaryUIProvider brandName="marys">
         <Stack />
       </MaryUIProvider>
     </ApolloProvider>

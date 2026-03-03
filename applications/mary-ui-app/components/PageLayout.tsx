@@ -13,7 +13,7 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <MaryUIProvider initialBrand="marys" initialMode="light">
+      <MaryUIProvider brandName="marys">
         <View style={styles.container}>
           <View style={styles.content}>
             {children}
