@@ -14,6 +14,19 @@ config.watchFolders = [
   libRoot
 ];
 
+
+const { transformer, resolver } = config;
+
+config.transformer = {
+  ...transformer,
+  babelTransformerPath: require.resolve("react-native-svg-transformer/expo")
+};
+config.resolver = {
+  ...resolver,
+  assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
+  sourceExts: [...resolver.sourceExts, "svg"]
+};
+
 config.resolver.nodeModulesPaths = [
   ...config.resolver.nodeModulesPaths,
   path.resolve(monorepoRoot, "node_modules"),

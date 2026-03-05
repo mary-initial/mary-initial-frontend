@@ -10,10 +10,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "noImplicitAny": false,
@@ -23,9 +20,7 @@
     "skipLibCheck": true,
     "typeRoots": ["jest", "react-test-renderer"]
   },
-  "include": [
-    "./index.ts"
-  ],
+  "include": ["./index.ts", "icons", "types"],
   "exclude": [
     "./**/__tests__",
     "./**/__fixtures__",
@@ -38,11 +33,7 @@
     "watchDirectory": "useFsEvents",
     "fallbackPolling": "dynamicPriority",
     "synchronousWatchDirectory": true,
-    "excludeDirectories": [
-      "node_modules",
-      "tests",
-      "dist"
-    ]
+    "excludeDirectories": ["node_modules", "tests", "dist"]
   },
   "extends": "expo/tsconfig.base"
 }

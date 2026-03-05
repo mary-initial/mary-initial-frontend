@@ -32,6 +32,7 @@
     "dev:ios": "npm run storybook:rn-ios & npm run storybook:web",
     "dev:android": "npm run storybook:rn-android & npm run storybook:web",
     "build": "tsc",
+    "postbuild": "cp -r icons/*.svg dist/icons/",
     "test": "jest && vitest run",
     "storybook": "storybook dev",
     "storybook:web": "npm run storybook -- --config-dir storybook/.storybook",
