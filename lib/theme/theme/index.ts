@@ -7,10 +7,18 @@ import { animationTokens } from '../tokens/animations';
 import { ButtonStylesFactory, makeButtonStyles } from './button';
 
 export const BrandMap: Brands = {
-  'marys': 'marys',
-  'activity' : 'aktivitet',
-  'information': 'viden',
-  'dark': 'dark'
+  'marys': {
+    'light': 'marysLight',
+    'dark': 'marysDark'
+  },
+  'activity': {
+    'light': 'aktivitetLight',
+    'dark': 'aktivitetDark'
+  },
+  'information': {
+    'light': 'videnLight',
+    'dark': 'videnDark'
+  },
 }
 
 export type ThemeStyles = {
@@ -21,7 +29,7 @@ export const createThemeStyles = (theme: Theme | null): ThemeStyles => theme && 
 });
 
 export type ThemeAnimations = typeof animationTokens;
-export type ThemeColors = typeof colorTokens['aktivitet'] | typeof colorTokens['viden'] | typeof colorTokens['marys'] | typeof colorTokens['dark'];
+export type ThemeColors = typeof colorTokens['aktivitetLight'] | typeof colorTokens['aktivitetDark'] | typeof colorTokens['videnLight'] | typeof colorTokens['videnDark'] | typeof colorTokens['marysLight'] | typeof colorTokens['marysDark'];
 export type ThemeTypography = typeof typographyTokens['mobile'] | typeof typographyTokens['tablet'] | typeof typographyTokens['desktop'];
 export type ThemeRadius = typeof radiusTokens['mobile'] | typeof radiusTokens['tablet'] | typeof radiusTokens['desktop'];
 export type ThemeSpacing = typeof spacingTokens['mobile'] | typeof spacingTokens['tablet'] | typeof spacingTokens['desktop'];

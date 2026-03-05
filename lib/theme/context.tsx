@@ -27,7 +27,7 @@ export function MaryUIProvider({
 }: MaryUIProviderProps) {
   const systemScheme = useColorScheme();
   const [brand, setBrand] = useState<BrandName>(brandName);
-  const [mode, setMode] = useState<ColorMode>(
+  const [colorMode, setColorMode] = useState<ColorMode>(
     colorModeOverride ?? (systemScheme === 'dark' ? 'dark' : 'light'),
   );
   const [dimensions, setDimensions] = useState({
@@ -45,7 +45,7 @@ export function MaryUIProvider({
       return 'desktop';
   }
   const [screenMode, setScreenMode] = useState<ScreenMode>(resolveScreenMode());
-  const [theme, setTheme] = useState<Theme | null>(resolveTheme(brandName, screenMode));
+  const [theme, setTheme] = useState<Theme | null>(resolveTheme(brandName, screenMode, colorMode));
 
   // Global styles resolved by theme and screen mode
   const themeStyles = useMemo(() => createThemeStyles(theme), [theme])
@@ -66,10 +66,10 @@ export function MaryUIProvider({
     theme,
     themeStyles,
     brand,
-    mode,
+    colorMode,
     screenMode,
     setTheme,
-    toggleMode: () => setMode((m) => (m === 'light' ? 'dark' : 'light')),
+    toggleColorMode: () => setColorMode((m) => (m === 'light' ? 'dark' : 'light')),
   };
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

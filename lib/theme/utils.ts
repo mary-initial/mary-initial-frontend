@@ -5,7 +5,7 @@ import { colorTokens } from './tokens/colors';
 import { radiusTokens } from './tokens/radius';
 import { spacingTokens } from './tokens/spacing';
 import { typographyTokens } from './tokens/typography';
-import type { BrandName, ScreenMode, SurfaceMode, Theme } from './types';
+import type { BrandName, ColorMode, ScreenMode, SurfaceMode, Theme } from './types';
 
 /**
  * Creates a StyleSheet factory tied to a theme object.
@@ -39,8 +39,8 @@ export function resolveSurfaceMode(onColor: boolean): SurfaceMode {
   return onColor ? 'impact' : 'surface'
 }
 
-export const resolveTheme = (brandName: BrandName, screenMode: ScreenMode): Theme => {
-  const brandNameKey = BrandMap[brandName];
+export const resolveTheme = (brandName: BrandName, screenMode: ScreenMode, colorMode: ColorMode): Theme => {
+  const brandNameKey = BrandMap[brandName][colorMode];
 
   const animations = animationTokens;
   const colors = colorTokens[brandNameKey];

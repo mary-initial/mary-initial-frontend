@@ -8,6 +8,7 @@
  * Workflow:
  *   1. Export Figma Variables from Figma Desktop using the flat JSON plugin export
  *      and save to lib/scripts/figma-tokens.json
+ *      NOTE: Plugin used for export: "Luckino - Variables Import/Export JSON & CSS"
  *   2. Run this script to generate lib/theme/tokens/*.ts from the JSON
  *
  * Alternatively, the JSON can be fetched via the Figma REST API if needed
@@ -33,8 +34,8 @@ const ROOT = resolve(__dirname, '..');
 
 /** A leaf token node in the flat Figma export */
 interface FlatTokenLeaf {
-  value: Record<string, string | number | boolean> | string | number | boolean;
-  type: string;
+  $value: Record<string, string | number | boolean> | string | number | boolean;
+  $type: string;
   resolvedType?: string;
 }
 
@@ -51,8 +52,8 @@ function isLeaf(node: unknown): node is FlatTokenLeaf {
   return (
     typeof node === 'object' &&
     node !== null &&
-    'value' in node &&
-    'type' in node &&
+    '$value' in node &&
+    '$type' in node &&
     !Array.isArray(node)
   );
 }
@@ -88,8 +89,8 @@ function resolveAlias(
   if (!isLeaf(current)) return null;
 
   // Flat leaf (Motion) — value is a direct primitive
-  if (typeof current.value === 'string' || typeof current.value === 'number') {
-    const v = current.value;
+  if (typeof current.$value === 'string' || typeof current.$value === 'number') {
+    const v = current.$value;
     if (typeof v === 'string' && v.startsWith('{')) {
       return resolveAlias(v, modeName, json);
     }
@@ -97,11 +98,11 @@ function resolveAlias(
   }
 
   // Mode-keyed leaf — extract the mode value
-  if (typeof current.value === 'object' && current.value !== null && modeName) {
-    const modeValue = (current.value as Record<string, unknown>)[modeName];
+  if (typeof current.$value === 'object' && current.$value !== null && modeName) {
+    const modeValue = (current.$value as Record<string, unknown>)[modeName];
     if (modeValue === undefined) {
       // Fall back to first available mode
-      const fallback = Object.values(current.value as Record<string, unknown>)[0];
+      const fallback = Object.values(current.$value as Record<string, unknown>)[0];
       if (typeof fallback === 'string' && fallback.startsWith('{')) {
         return resolveAlias(fallback, modeName, json);
       }
@@ -137,20 +138,20 @@ function walkTokens(
     const key = toCamelCase(rawKey);
 
     if (isLeaf(child)) {
-      if (skipTypes.includes(child.type)) continue;
+      if (skipTypes.includes(child.$type)) continue;
 
       let resolvedValue: string | number | null = null;
 
       if (modeName === null) {
         // Flat leaf (Motion)
-        if (typeof child.value === 'string' || typeof child.value === 'number') {
-          resolvedValue = customFormatter(child.value);
+        if (typeof child.$value === 'string' || typeof child.$value === 'number') {
+          resolvedValue = customFormatter(child.$value);
         }
-      } else if (typeof child.value === 'object' && child.value !== null && !Array.isArray(child.value)) {
+      } else if (typeof child.$value === 'object' && child.$value !== null && !Array.isArray(child.$value)) {
         // Mode-keyed leaf
-        let modeValue = (child.value as Record<string, unknown>)[modeName];
+        let modeValue = (child.$value as Record<string, unknown>)[modeName];
         if (modeValue === undefined && fallbackModeName !== null) {
-          modeValue = (child.value as Record<string, unknown>)[fallbackModeName];
+          modeValue = (child.$value as Record<string, unknown>)[fallbackModeName];
         }
         if (modeValue === undefined) continue;
         if (typeof modeValue === 'string' && modeValue.startsWith('{')) {
@@ -210,39 +211,6 @@ function writeTokenFile(
   console.log(`  ✓ Written theme/tokens/${filename}`);
 }
 
-// ─── TOKENS.md ───────────────────────────────────────────────────────────────
-
-function writeTokensMarkdown(
-  sections: Record<string, Record<string, unknown>>,
-): void {
-  const flatten = (obj: Record<string, unknown>, prefix = ''): [string, unknown][] =>
-    Object.entries(obj).flatMap(([k, v]) =>
-      typeof v === 'object' && v !== null
-        ? flatten(v as Record<string, unknown>, prefix ? `${prefix}.${k}` : k)
-        : [[prefix ? `${prefix}.${k}` : k, v]],
-    );
-
-  const lines: string[] = [
-    '# Design Tokens Reference',
-    '',
-    '> Auto-generated — run `npm run tokens:sync` to update.',
-    '',
-  ];
-
-  for (const [sectionName, tokens] of Object.entries(sections)) {
-    lines.push(`## ${sectionName}`, '');
-    lines.push('| Token | Value |', '|---|---|');
-    for (const [key, value] of flatten(tokens)) {
-      lines.push(`| \`${key}\` | \`${value}\` |`);
-    }
-    lines.push('');
-  }
-
-  const path = resolve(ROOT, 'theme', 'TOKENS.md');
-  writeFileSync(path, lines.join('\n'), 'utf-8');
-  console.log('  ✓ Written theme/TOKENS.md');
-}
-
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 function loadFromFile(): FigmaTokensJson {
@@ -270,10 +238,12 @@ function main() {
   if (!colorsNode) throw new Error('Colors collection not found in figma-tokens.json');
 
   const colorModes: Record<string, string> = {
-    marys: 'MARYS',
-    dark: 'Dark',
-    aktivitet: 'Aktivitet',
-    viden: 'Viden',
+    marysLight: 'MARYS Light',
+    marysDark: 'MARYS Dark',
+    aktivitetLight: 'Aktivitet Light',
+    aktivitetDark: 'Aktivitet Dark',
+    videnLight: 'Viden Light',
+    videnDark: 'Viden Dark'
   };
 
   const screenModes: Record<string, string> = {
@@ -305,8 +275,8 @@ function main() {
   writeTokenFile('spacing.ts', 'spacingTokens', 'SpacingTokens', spacingTokens);
 
   // corner radius → radius.ts (semantic names, camelCased)
-  const cornerRadiusNode = spacingNode['corner radius'];
-  if (!cornerRadiusNode) throw new Error('Spacing["corner radius"] not found');
+  const cornerRadiusNode = spacingNode['corner-radius'];
+  if (!cornerRadiusNode) throw new Error('Spacing["corner-radius"] not found');
 
   const radiusTokens: Record<string, unknown> = {};
   let prevRadiusModeName: string | null = null;
@@ -369,8 +339,6 @@ function main() {
 
   writeTokenFile('animations.ts', 'animationTokens', 'AnimationTokens', animationTokens);
   mdSections['Motion'] = animationTokens;
-
-  writeTokensMarkdown(mdSections);
 
   console.log('\n✅ Done! Commit the updated token files.');
 }
