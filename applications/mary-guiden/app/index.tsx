@@ -11,7 +11,7 @@ const GET_GREETING = graphql(`
   }
 `);
 
-export default function Marrys() {
+export default function Marys() {
   const { loading, error, data } = useQuery(GET_GREETING);
 
   if (loading) return <Text>Loading...</Text>;
