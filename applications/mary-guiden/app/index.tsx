@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client/react";
 import { graphql } from "@generated/gql";
-import { Button } from "@marys-ui";
 import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const GET_GREETING = graphql(`
   query GetGreeting {
@@ -11,7 +11,7 @@ const GET_GREETING = graphql(`
   }
 `);
 
-export default function Index() {
+export default function Marys() {
   const { loading, error, data } = useQuery(GET_GREETING);
 
   if (loading) return <Text>Loading...</Text>;
@@ -25,9 +25,10 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text style={{ marginBottom: 20 }}>Example component:</Text>
-      <Text style={{ marginBottom: 20 }}>{data?.greeting?.message}</Text>
-      <Button text="Press the button" onPress={() => {}}></Button>
+      <SafeAreaView>
+        <Text>Marry's Page</Text>
+        <Text style={{ marginBottom: 20 }}>{data?.greeting?.message}</Text>
+      </SafeAreaView>
     </View>
   );
 }

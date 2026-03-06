@@ -1,19 +1,35 @@
-import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
-import { ApolloProvider } from "@apollo/client/react";
+import type { Meta, StoryObj } from "@storybook/react-native";
+import { View } from "react-native";
 import {
   ActivityStar,
   ActivityStarFill,
-  BottomTabs,
   Food,
   FoodFill,
   Learn,
   LearnFill,
   MaryHome,
   MaryHomeFill,
-  MaryUIProvider,
   Progression,
   ProgressionFill,
-} from "@marys-ui";
+} from "../../icons";
+import { BottomTabs } from "./BottomTabs";
+
+const meta = {
+  title: "BottomTabs",
+  component: BottomTabs,
+  tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <View style={{ padding: 16 }}>
+        <Story />
+      </View>
+    ),
+  ],
+} satisfies Meta<typeof BottomTabs>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 const tabScreens = [
   { name: "index", title: "MARYS", Icon: MaryHome, IconFill: MaryHomeFill },
@@ -33,19 +49,9 @@ const tabScreens = [
   },
 ];
 
-export default function RootLayout() {
-  const client = new ApolloClient({
-    link: new HttpLink({
-      uri: process.env.EXPO_PUBLIC_API_URL,
-    }),
-    cache: new InMemoryCache(),
-  });
-
-  return (
-    <ApolloProvider client={client}>
-      <MaryUIProvider brandName="marys">
-        <BottomTabs tabScreens={tabScreens} />
-      </MaryUIProvider>
-    </ApolloProvider>
-  );
-}
+// Large — Active states
+export const BottomNavigationLinks: Story = {
+  args: {
+    tabScreens,
+  },
+};

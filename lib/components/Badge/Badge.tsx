@@ -1,10 +1,10 @@
-import { useMemo } from 'react';
-import { StyleSheet, Text, View, type ViewStyle } from 'react-native';
-import type { Theme } from '../../theme';
-import { makeStyles, useTheme } from '../../theme';
+import { useMemo } from "react";
+import { StyleSheet, Text, View, type ViewStyle } from "react-native";
+import type { Theme } from "../../theme";
+import { makeStyles, useTheme } from "../../theme";
 
-export type BadgeSize = 'large' | 'small';
-export type BadgeContent = 'icon' | 'number' | 'none';
+export type BadgeSize = "large" | "small";
+export type BadgeContent = "icon" | "number" | "none";
 
 export interface BadgeProps {
   size?: BadgeSize;
@@ -17,8 +17,8 @@ export interface BadgeProps {
 }
 
 export const Badge = ({
-  size = 'large',
-  content = 'icon',
+  size = "large",
+  content = "icon",
   disabled = false,
   number = 1,
   testID,
@@ -29,18 +29,18 @@ export const Badge = ({
 
   const containerStyles = [
     styles.base,
-    size === 'large' ? styles.large : styles.small,
+    size === "large" ? styles.large : styles.small,
     disabled && styles.disabled,
     style,
   ];
 
   return (
     <View style={containerStyles} testID={testID}>
-      {size === 'large' && content === 'icon' && (
+      {size === "large" && content === "icon" && (
         // TODO: Replace with proper icon component when icon library is added
         <Text style={styles.iconText}>✓</Text>
       )}
-      {size === 'large' && content === 'number' && (
+      {size === "large" && content === "number" && (
         <Text style={styles.numberText}>{number}</Text>
       )}
     </View>
@@ -51,9 +51,9 @@ const createStyles = makeStyles((theme: Theme) =>
   StyleSheet.create({
     base: {
       borderRadius: theme.radius.pillCircle,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: theme.colors.base.interaction.activeFill
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: theme.colors.base.interaction.activeFill,
     },
     large: {
       width: theme.spacing[32],
@@ -71,7 +71,7 @@ const createStyles = makeStyles((theme: Theme) =>
       fontSize: theme.typography.description.size,
       lineHeight: theme.typography.description.lineheight,
       fontWeight: theme.typography.fontWeightsRN.bold,
-      textAlign: 'center',
+      textAlign: "center",
     },
     numberText: {
       color: theme.colors.icon.impact.default,
@@ -79,7 +79,7 @@ const createStyles = makeStyles((theme: Theme) =>
       lineHeight: theme.typography.description.lineheight,
       letterSpacing: theme.typography.description.letterspacing,
       fontWeight: theme.typography.fontWeightsRN.regular,
-      textAlign: 'center',
+      textAlign: "center",
     },
-  })
+  }),
 );
