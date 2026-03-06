@@ -31,8 +31,7 @@ export const Button = ({
   // Theme & styles
   const { theme } = useTheme();
   const { animations } = theme;
-  const themeStyles = useThemeStyle('buttonStyles')(variant, onColor);
-
+  const themeStyles = useThemeStyle().buttonStyles(variant, onColor);
   const buttonStyles = useMemo(() => createStyles(theme), [theme]);
 
   const containerStyles = [

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { Dimensions, useColorScheme } from 'react-native';
-import { createThemeStyles, ThemeStyles } from './theme';
+import { Dimensions, useColorScheme, View } from 'react-native';
+import { createThemeStyles } from './theme';
 import { ScreenMode, Theme, type BrandName, type ColorMode, type ThemeContextValue } from './types';
 import { resolveTheme } from './utils';
 
@@ -72,7 +72,14 @@ export function MaryUIProvider({
     toggleColorMode: () => setColorMode((m) => (m === 'light' ? 'dark' : 'light')),
   };
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+
+  const globalStyles = themeStyles.globalStyles();
+
+  return (
+    <ThemeContext.Provider value={value}>
+      <View style={[globalStyles.appContainer]}>{children}</View>
+      </ThemeContext.Provider>
+  );
 }
 
 export function useTheme(): ThemeContextValue {
@@ -84,13 +91,12 @@ export function useTheme(): ThemeContextValue {
 
   return context;
 }
-export function useThemeStyle(themeStyle: keyof ThemeStyles): ThemeStyles[typeof themeStyle] {
+export function useThemeStyle() {
   const context = useContext(ThemeContext); 
 
   if (!context) {
     throw new Error('useTheme must be used within a MaryUIProvider');
   }
 
-  const themeStyles = context.themeStyles;
-  return themeStyles[themeStyle];
-} 
+  return context.themeStyles;
+}

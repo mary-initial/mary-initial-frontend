@@ -5,6 +5,7 @@ import { typographyTokens } from 'theme/tokens/typography';
 import { Brands, SurfaceMode } from 'theme/types';
 import { animationTokens } from '../tokens/animations';
 import { ButtonStylesFactory, makeButtonStyles } from './button';
+import { GlobalStylesFactory, makeGlobalStyles } from './global';
 
 export const BrandMap: Brands = {
   'marys': {
@@ -22,9 +23,11 @@ export const BrandMap: Brands = {
 }
 
 export type ThemeStyles = {
+  globalStyles: GlobalStylesFactory,
   buttonStyles: ButtonStylesFactory
 };
 export const createThemeStyles = (theme: Theme | null): ThemeStyles => theme && ({
+  globalStyles: makeGlobalStyles(theme),
   buttonStyles: makeButtonStyles(theme)
 });
 
@@ -45,3 +48,4 @@ export type SurfaceStyle<T> = {
 }
 
 export type { ButtonVariant } from './button';
+
