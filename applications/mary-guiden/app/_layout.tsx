@@ -35,7 +35,9 @@ const tabScreens = [
 
 export default function RootLayout() {
   const client = new ApolloClient({
-    link: new HttpLink({ uri: process.env.EXPO_PUBLIC_API_URL }),
+    link: new HttpLink({
+      uri: process.env.EXPO_PUBLIC_API_URL,
+    }),
     cache: new InMemoryCache(),
   });
 

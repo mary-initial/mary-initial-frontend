@@ -16,18 +16,19 @@ export default function Marrys() {
 
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error: {error.message}</Text>;
+
   return (
-    <SafeAreaView>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <SafeAreaView>
         <Text>Marry's Page</Text>
         <Text style={{ marginBottom: 20 }}>{data?.greeting?.message}</Text>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   );
 }
