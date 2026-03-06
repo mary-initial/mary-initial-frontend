@@ -14,14 +14,33 @@ config.watchFolders = [
   libRoot
 ];
 
-config.resolver.nodeModulesPaths = [
-  ...config.resolver.nodeModulesPaths,
-  path.resolve(monorepoRoot, "node_modules"),
-];
+const { transformer, resolver } = config;
 
-// Alias @marys-ui to the built package
-config.resolver.extraNodeModules = {
-  "@marys-ui": libRoot
+config.transformer = {
+  ...transformer,
+  babelTransformerPath: require.resolve("react-native-svg-transformer/expo")
+};
+
+config.resolver = {
+  ...resolver,
+  assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
+  sourceExts: [...resolver.sourceExts, "svg"],
+  nodeModulesPaths: [
+    ...resolver.nodeModulesPaths,
+    path.resolve(monorepoRoot, "node_modules"),
+  ],
+  extraNodeModules: {
+    "@marys-ui": libRoot,
+  },
+  resolveRequest: (context, moduleName, platform) => {
+    if (moduleName === 'tslib') {
+      return {
+        filePath: require.resolve('tslib/tslib.js'),
+        type: 'sourceFile',
+      };
+    }
+    return context.resolveRequest(context, moduleName, platform);
+  },
 };
 
 module.exports = config;
