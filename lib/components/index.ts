@@ -1,5 +1,6 @@
 /**
  * Components
  */
-export * from './Badge';
-export * from './Button';
+export * from "./Badge";
+export * from "./BottomTabs";
+export * from "./Button";

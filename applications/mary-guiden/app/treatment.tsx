@@ -1,9 +1,12 @@
 import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Programs() {
   return (
-    <View>
-      <Text>Programs Page</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Programs Page</Text>
+      </View>
+    </SafeAreaView>
   );
 }

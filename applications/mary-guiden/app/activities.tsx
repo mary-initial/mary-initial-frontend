@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Activities() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView>
       <View>
         <Text>Activities Page</Text>
       </View>
