@@ -1,11 +1,19 @@
-import { StyleSheet } from 'react-native';
-import { BrandMap } from './theme';
-import { animationTokens } from './tokens/animations';
-import { colorTokens } from './tokens/colors';
-import { radiusTokens } from './tokens/radius';
-import { spacingTokens } from './tokens/spacing';
-import { typographyTokens } from './tokens/typography';
-import type { BrandName, ColorMode, ScreenMode, SurfaceMode, Theme } from './types';
+import { StyleSheet } from "react-native";
+import { BrandMap } from "./theme";
+import { animationTokens } from "./tokens/animations";
+import { colorTokens } from "./tokens/colors";
+import { containerTokens } from "./tokens/container";
+import { gridTokens } from "./tokens/grid";
+import { radiusTokens } from "./tokens/radius";
+import { spacingTokens } from "./tokens/spacing";
+import { typographyTokens } from "./tokens/typography";
+import type {
+  BrandName,
+  ColorMode,
+  ScreenMode,
+  SurfaceMode,
+  Theme,
+} from "./types";
 
 /**
  * Creates a StyleSheet factory tied to a theme object.
@@ -25,7 +33,7 @@ import type { BrandName, ColorMode, ScreenMode, SurfaceMode, Theme } from './typ
  * const styles = useMemo(() => createStyles(theme), [theme]);
  */
 export function makeStyles<T extends StyleSheet.NamedStyles<T>>(
-  factory: (theme: Theme) => T,
+  factory: (theme: Theme) => T
 ): (theme: Theme) => T {
   return factory;
 }
@@ -36,10 +44,14 @@ export function makeStyles<T extends StyleSheet.NamedStyles<T>>(
  * @returns the surface mode
  */
 export function resolveSurfaceMode(onColor: boolean): SurfaceMode {
-  return onColor ? 'impact' : 'surface'
+  return onColor ? "impact" : "surface";
 }
 
-export const resolveTheme = (brandName: BrandName, screenMode: ScreenMode, colorMode: ColorMode): Theme => {
+export const resolveTheme = (
+  brandName: BrandName,
+  screenMode: ScreenMode,
+  colorMode: ColorMode
+): Theme => {
   const brandNameKey = BrandMap[brandName][colorMode];
 
   const animations = animationTokens;
@@ -47,12 +59,18 @@ export const resolveTheme = (brandName: BrandName, screenMode: ScreenMode, color
   const spacing = spacingTokens[screenMode];
   const radius = radiusTokens[screenMode];
   const typography = typographyTokens[screenMode];
+  const container = containerTokens[screenMode];
+  const grid = gridTokens[screenMode];
 
   return {
     animations,
     colors,
     spacing,
     radius,
-    typography
-  }
-}
+    typography,
+    container,
+    grid,
+  };
+};
+
+export const rem = (size: number) => 16 * size;

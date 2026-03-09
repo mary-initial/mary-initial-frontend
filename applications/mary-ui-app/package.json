@@ -25,6 +25,9 @@
     "@babel/preset-env": "^7.29.0",
     "@expo/metro-runtime": "~6.1.2",
     "@react-native/babel-preset": "^0.83.1",
-    "babel-preset-expo": "^54.0.10"
+    "babel-preset-expo": "^54.0.10",
+    "eslint": "^9.25.0",
+    "eslint-config-expo": "~10.0.0",
+    "eslint-config-prettier": "^10.1.8"
   }
 }

@@ -1,16 +1,27 @@
+import {
+  DocsContainer,
+  type DocsContainerProps,
+} from "@storybook/addon-docs/blocks";
 import type { Preview } from "@storybook/react-native";
-import { DocsContainer, type DocsContainerProps } from "@storybook/addon-docs/blocks";
 import type { PropsWithChildren } from "react";
 import { themes } from "storybook/theming";
+import { useThemeFonts } from "../../plugin";
 import type { BrandName, ColorMode } from "../../theme";
 import { MaryUIProvider } from "../../theme";
 import { ScreenMode } from "../../theme/types";
 
-function ThemedDocsContainer({ children, ...props }: PropsWithChildren<DocsContainerProps>) {
+function ThemedDocsContainer({
+  children,
+  ...props
+}: PropsWithChildren<DocsContainerProps>) {
   const context = props.context as Record<string, any>;
   const colorMode = context?.store?.userGlobals?.globals?.colorMode ?? "light";
   const theme = colorMode === "dark" ? themes.dark : themes.light;
-  return <DocsContainer {...props} theme={theme}>{children}</DocsContainer>;
+  return (
+    <DocsContainer {...props} theme={theme}>
+      {children}
+    </DocsContainer>
+  );
 }
 
 const preview: Preview = {
@@ -62,10 +73,17 @@ const preview: Preview = {
     (Story, context) => {
       const brand = (context.globals.brand as BrandName) ?? "marys";
       const colorMode = (context.globals.colorMode as ColorMode) ?? "light";
-      const screenMode = (context.globals?.screenMode as ScreenMode) ?? "mobile";
+      const screenMode =
+        (context.globals?.screenMode as ScreenMode) ?? "mobile";
+
+      useThemeFonts();
 
       return (
-        <MaryUIProvider brandName={brand} colorModeOverride={colorMode} screenModeOverride={screenMode}>
+        <MaryUIProvider
+          brandName={brand}
+          colorModeOverride={colorMode}
+          screenModeOverride={screenMode}
+        >
           <Story />
         </MaryUIProvider>
       );

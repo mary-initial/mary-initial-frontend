@@ -10,10 +10,13 @@ addons.register("marys-ui/theme-sync", (api) => {
   const channel = api.getChannel();
   if (!channel) return;
 
-  channel.on(GLOBALS_UPDATED, ({ globals }: { globals: Record<string, unknown> }) => {
-    const colorMode = globals?.colorMode ?? "light";
-    addons.setConfig({
-      theme: colorMode === "dark" ? themes.dark : themes.light,
-    });
-  });
+  channel.on(
+    GLOBALS_UPDATED,
+    ({ globals }: { globals: Record<string, unknown> }) => {
+      const colorMode = globals?.colorMode ?? "light";
+      addons.setConfig({
+        theme: colorMode === "dark" ? themes.dark : themes.light,
+      });
+    }
+  );
 });

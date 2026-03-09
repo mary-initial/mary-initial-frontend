@@ -1,5 +1,6 @@
 export { default as ActivityStarFill } from "./activity-star-fill.svg";
 export { default as ActivityStar } from "./activity-star.svg";
+export { default as Check } from "./check.svg";
 export { default as FoodFill } from "./food-fill.svg";
 export { default as Food } from "./food.svg";
 export { default as LearnFill } from "./learn-fill.svg";
@@ -8,3 +9,4 @@ export { default as MaryHomeFill } from "./mary-home-fill.svg";
 export { default as MaryHome } from "./mary-home.svg";
 export { default as ProgressionFill } from "./progression-fill.svg";
 export { default as Progression } from "./progression.svg";
+

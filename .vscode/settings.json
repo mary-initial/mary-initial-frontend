@@ -4,5 +4,8 @@
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
   },
-  "yaml.validate": false // just for now
+  "yaml.validate": false, // just for now
+  "editor.indentSize": 2,
+  "editor.detectIndentation": true,
+  "prettier.useTabs": false
 }

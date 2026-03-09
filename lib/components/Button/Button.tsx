@@ -1,13 +1,13 @@
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef } from "react";
 import {
   Animated,
   Easing,
   Pressable,
   StyleSheet,
   Text,
-  type ViewStyle
-} from 'react-native';
-import { ButtonVariant, makeStyles, useTheme, useThemeStyle } from '../../theme';
+  type ViewStyle,
+} from "react-native";
+import { ButtonVariant, makeStyles, useTheme } from "../../theme";
 
 export interface ButtonProps {
   onPress: () => void;
@@ -22,43 +22,51 @@ export interface ButtonProps {
 export const Button = ({
   onPress,
   text,
-  variant = 'primary',
+  variant = "primary",
   onColor = false,
   disabled = false,
   testID,
   style,
 }: ButtonProps) => {
   // Theme & styles
-  const { theme } = useTheme();
+  const { theme, styles } = useTheme();
   const { animations } = theme;
-  const themeStyles = useThemeStyle().buttonStyles(variant, onColor);
+  const themeStyles = styles.buttonStyles(variant, onColor);
   const buttonStyles = useMemo(() => createStyles(theme), [theme]);
 
+  // Button container styles
   const containerStyles = [
     themeStyles.buttonContainer,
     buttonStyles.container,
-    variant === 'compact' && buttonStyles.compactContainer,
+    variant === "compact" && buttonStyles.compactContainer,
     disabled && buttonStyles.disabledContainer,
     style,
   ];
 
-  const textStyles = [
-    themeStyles.buttonText,
-    buttonStyles.text
-  ];
+  // Button text styles
+  const textStyles = [themeStyles.buttonText, buttonStyles.text];
 
   // Animation
   const scale = useRef(new Animated.Value(1)).current;
   const overlayOpacity = useRef(new Animated.Value(0)).current;
-  const animatedContainerStyle = [{
-    transform: [{ scale }],
-  }];
-  const animatedOverlayStyle = [{
-    opacity: overlayOpacity,
-  }];
+  const animatedContainerStyle = [
+    {
+      transform: [{ scale }],
+    },
+  ];
+  const animatedOverlayStyle = [
+    {
+      opacity: overlayOpacity,
+    },
+  ];
 
   const pressAnimation = (ref: Animated.Value, toValue: number) =>
-    Animated.timing(ref, { duration: animations.duration.xfast, easing: Easing.bezier(...animations.ease.inOut), useNativeDriver: true, toValue });
+    Animated.timing(ref, {
+      duration: animations.duration.xfast,
+      easing: Easing.bezier(...animations.ease.inOut),
+      useNativeDriver: true,
+      toValue,
+    });
 
   const handlePressIn = () => {
     pressAnimation(scale, 0.93).start();
@@ -72,7 +80,7 @@ export const Button = ({
 
   return (
     <Pressable
-      role='button'
+      role="button"
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
@@ -81,7 +89,11 @@ export const Button = ({
     >
       <Animated.View style={[...containerStyles, animatedContainerStyle]}>
         <Animated.View
-          style={[StyleSheet.absoluteFillObject, buttonStyles.pressedOverlay, animatedOverlayStyle]}
+          style={[
+            StyleSheet.absoluteFillObject,
+            buttonStyles.pressedOverlay,
+            animatedOverlayStyle,
+          ]}
           pointerEvents="none"
         />
         <Text style={textStyles}>{text}</Text>
@@ -90,13 +102,13 @@ export const Button = ({
   );
 };
 
-const createStyles = makeStyles(({ colors, spacing, radius, typography }) => {
+const createStyles = makeStyles(({ colors, spacing, radius }) => {
   const buttonVars = {
     height: spacing[56],
     pxPill: spacing[40],
-    gap: spacing[8]
+    gap: spacing[8],
   };
-  
+
   return StyleSheet.create({
     container: {
       height: buttonVars.height,
@@ -104,21 +116,17 @@ const createStyles = makeStyles(({ colors, spacing, radius, typography }) => {
       borderRadius: radius.buttonStandard,
       paddingHorizontal: buttonVars.pxPill,
       gap: buttonVars.gap,
-      overflow: 'hidden',
-      justifyContent: 'center',
-      alignSelf: 'baseline'
+      overflow: "hidden",
+      justifyContent: "center",
+      alignSelf: "baseline",
     },
     text: {
-      fontSize: typography.buttons.size,
-      lineHeight: typography.buttons.lineheight,
-      letterSpacing: typography.buttons.letterspacing,
-      fontWeight: typography.fontWeightsRN.regular,
-      textAlign: 'center',
+      textAlign: "center",
     },
     compactContainer: {
       borderRadius: radius.cardSmall,
       paddingHorizontal: 16,
-      paddingVertical: 8
+      paddingVertical: 8,
     },
     disabledContainer: {
       opacity: 0.5,
@@ -126,5 +134,5 @@ const createStyles = makeStyles(({ colors, spacing, radius, typography }) => {
     pressedOverlay: {
       backgroundColor: colors.base.interaction.darkPress,
     },
-  })
+  });
 });

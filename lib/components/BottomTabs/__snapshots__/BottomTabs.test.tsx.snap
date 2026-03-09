@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`BottomTabs BottomNavigationLinks should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View>
+    <View
+      testID="bottom-tabs"
+    >
+      <View
+        testID="tab-index"
+      >
+        <Text>
+          MARYS
+        </Text>
+      </View>
+      <View
+        testID="tab-activities"
+      >
+        <Text>
+          Aktiviteter
+        </Text>
+      </View>
+      <View
+        testID="tab-food"
+      >
+        <Text>
+          Mad
+        </Text>
+      </View>
+      <View
+        testID="tab-learn-about"
+      >
+        <Text>
+          Viden om
+        </Text>
+      </View>
+      <View
+        testID="tab-treatment"
+      >
+        <Text>
+          Forløb
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
