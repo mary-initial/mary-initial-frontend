@@ -77,13 +77,13 @@ exports[`Button Clickable should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -194,13 +194,13 @@ exports[`Button Compact should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -312,13 +312,13 @@ exports[`Button CompactDisabled should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -428,13 +428,13 @@ exports[`Button Primary should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -545,13 +545,13 @@ exports[`Button PrimaryDisabled should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -661,13 +661,13 @@ exports[`Button PrimaryOnColor should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -777,13 +777,13 @@ exports[`Button Secondary should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -894,13 +894,13 @@ exports[`Button SecondaryDisabled should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -1010,13 +1010,13 @@ exports[`Button SecondaryOnColor should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -1126,13 +1126,13 @@ exports[`Button Tertiary should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,
@@ -1243,13 +1243,13 @@ exports[`Button TertiaryDisabled should match snapshot 1`] = `
       >
         <View
           collapsable={false}
-          pointerEvents="none"
           style={
             {
               "backgroundColor": "rgba(0, 0, 0, 0.5)",
               "bottom": 0,
               "left": 0,
               "opacity": 0,
+              "pointerEvents": "none",
               "position": "absolute",
               "right": 0,
               "top": 0,

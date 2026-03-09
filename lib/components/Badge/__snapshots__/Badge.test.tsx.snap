@@ -43,9 +43,7 @@ exports[`Badge LargeActiveIcon should match snapshot 1`] = `
       <View
         style={
           {
-            "alignItems": "center",
             "height": 16,
-            "justifyContent": "center",
             "width": 16,
           }
         }
@@ -228,9 +226,7 @@ exports[`Badge LargeDisabledIcon should match snapshot 1`] = `
       <View
         style={
           {
-            "alignItems": "center",
             "height": 16,
-            "justifyContent": "center",
             "width": 16,
           }
         }

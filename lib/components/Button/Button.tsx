@@ -94,7 +94,6 @@ export const Button = ({
             buttonStyles.pressedOverlay,
             animatedOverlayStyle,
           ]}
-          pointerEvents="none"
         />
         <Text style={textStyles}>{text}</Text>
       </Animated.View>
@@ -133,6 +132,7 @@ const createStyles = makeStyles(({ colors, spacing, radius }) => {
     },
     pressedOverlay: {
       backgroundColor: colors.base.interaction.darkPress,
+      pointerEvents: "none",
     },
   });
 });
