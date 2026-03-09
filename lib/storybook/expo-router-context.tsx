@@ -1,5 +1,7 @@
+import { NavigationIndependentTree } from "@react-navigation/native";
 import { ExpoRoot } from "expo-router";
 import React from "react";
+import { Platform } from "react-native";
 
 type RouteModule = {
   default: React.ComponentType;
@@ -46,7 +48,7 @@ if (typeof process !== "undefined") {
  *
  * Patched at module level so it's active before ExpoRoot's first render.
  */
-if (typeof window !== "undefined" && window.history) {
+if (Platform.OS === "web" && typeof window !== "undefined" && window.history) {
   const origPushState = window.history.pushState.bind(window.history);
   const origReplaceState = window.history.replaceState.bind(window.history);
 
@@ -92,5 +94,9 @@ export function ExpoRouterContext({
 }) {
   const context = React.useMemo(() => inMemoryContext(routes), [routes]);
 
-  return <ExpoRoot context={context} location={initialUrl} />;
+  return (
+    <NavigationIndependentTree>
+      <ExpoRoot context={context} location={initialUrl} />
+    </NavigationIndependentTree>
+  );
 }

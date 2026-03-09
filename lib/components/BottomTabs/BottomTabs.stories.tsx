@@ -64,7 +64,7 @@ export const BottomNavigationLinks: Story = {
   args: {
     tabScreens,
   },
-  render: () => <ExpoRouterContext routes={routes} initialUrl="/" />,
+  render: () => <ExpoRouterContext initialUrl="/" routes={routes} />,
   parameters: {
     docs: {
       source: {
