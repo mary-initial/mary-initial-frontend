@@ -1,6 +1,6 @@
 import { TextStyle } from "react-native";
-import { Theme, ThemeTypography } from ".";
 import { typographyTokens } from "../tokens/typography";
+import { Theme, ThemeTypography } from "./types";
 
 /** Get base values from typography design tokens */
 const typographyBase = typographyTokens.mobile.base;

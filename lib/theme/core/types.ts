@@ -1,38 +1,24 @@
-import { colorTokens } from "theme/tokens/colors";
-import { containerTokens } from "theme/tokens/container";
-import { gridTokens } from "theme/tokens/grid";
-import { radiusTokens } from "theme/tokens/radius";
-import { spacingTokens } from "theme/tokens/spacing";
-import { typographyTokens } from "theme/tokens/typography";
-import { Brands, SurfaceMode } from "theme/types";
 import { animationTokens } from "../tokens/animations";
-import { ButtonStylesFactory, makeButtonStyles } from "./button";
-import { makeTypographyStyles, TypographyStylesFactory } from "./typography";
+import { colorTokens } from "../tokens/colors";
+import { containerTokens } from "../tokens/container";
+import { gridTokens } from "../tokens/grid";
+import { radiusTokens } from "../tokens/radius";
+import { spacingTokens } from "../tokens/spacing";
+import { typographyTokens } from "../tokens/typography";
+import { ButtonStylesFactory } from "./button";
+import { TypographyStylesFactory } from "./typography";
 
-export const BrandMap: Brands = {
-  marys: {
-    light: "marysLight",
-    dark: "marysDark",
-  },
-  activity: {
-    light: "aktivitetLight",
-    dark: "aktivitetDark",
-  },
-  information: {
-    light: "videnLight",
-    dark: "videnDark",
-  },
-};
+export type BrandName = "marys" | "activity" | "information";
+export type ColorMode = "light" | "dark";
+export type ScreenMode = "mobile" | "tablet" | "desktop";
+export type SurfaceMode = "surface" | "impact";
+export type BrandNameKey = keyof typeof colorTokens;
+export type Brands = Record<BrandName, Record<ColorMode, BrandNameKey>>;
 
 export type ThemeStyles = {
   textStyles: TypographyStylesFactory;
   buttonStyles: ButtonStylesFactory;
 };
-export const createThemeStyles = (theme: Theme | null): ThemeStyles =>
-  theme && {
-    textStyles: makeTypographyStyles(theme),
-    buttonStyles: makeButtonStyles(theme),
-  };
 
 export type ThemeAnimations = typeof animationTokens;
 export type ThemeColors =
@@ -62,6 +48,7 @@ export type ThemeSpacing =
   | (typeof spacingTokens)["mobile"]
   | (typeof spacingTokens)["tablet"]
   | (typeof spacingTokens)["desktop"];
+
 export type Theme = {
   animations: ThemeAnimations;
   colors: ThemeColors;
@@ -71,10 +58,7 @@ export type Theme = {
   grid: ThemeGrid;
   container: ThemeContainer;
 };
+
 export type SurfaceStyle<T> = {
   [key in SurfaceMode]: T;
 };
-
-export type { ButtonVariant } from "./button";
-export { fontBold, fontLight, fontRegular } from "./typography";
-

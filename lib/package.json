@@ -19,8 +19,6 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "react-native": "./dist/index.js",
-      "plugin": "./dist/plugin.js",
       "default": "./dist/index.js"
     }
   },

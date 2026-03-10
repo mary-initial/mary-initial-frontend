@@ -1,19 +1,19 @@
 import React, {
-    createContext,
-    useContext,
-    useEffect,
-    useMemo,
-    useState,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
 } from "react";
 import { Dimensions, useColorScheme } from "react-native";
-import { createThemeStyles } from "./theme";
 import {
-    ScreenMode,
-    Theme,
-    type BrandName,
-    type ColorMode,
-    type ThemeContextValue,
-} from "./types";
+  createThemeStyles,
+  ScreenMode,
+  Theme,
+  type BrandName,
+  type ColorMode,
+} from "./core";
+import { type ThemeContextValue } from "./types";
 import { resolveTheme } from "./utils";
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);

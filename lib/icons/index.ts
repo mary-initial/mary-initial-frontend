@@ -1,5 +1,6 @@
 export { default as ActivityStarFill } from "./activity-star-fill.svg";
 export { default as ActivityStar } from "./activity-star.svg";
+export { default as BadgeCheck } from "./badge-check.svg";
 export { default as Check } from "./check.svg";
 export { default as FoodFill } from "./food-fill.svg";
 export { default as Food } from "./food.svg";

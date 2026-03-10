@@ -1,13 +1,10 @@
-import type { Theme, ThemeStyles } from "./theme";
-import { colorTokens } from "./tokens/colors";
-export type { Theme };
-
-export type BrandName = "marys" | "activity" | "information";
-export type ColorMode = "light" | "dark";
-export type ScreenMode = "mobile" | "tablet" | "desktop";
-export type SurfaceMode = "surface" | "impact";
-export type BrandNameKey = keyof typeof colorTokens;
-export type Brands = Record<BrandName, Record<ColorMode, BrandNameKey>>;
+import {
+  BrandName,
+  ColorMode,
+  ScreenMode,
+  Theme,
+  ThemeStyles,
+} from "./core/types";
 
 export interface ThemeContextValue {
   /** The fully resolved theme object for the active brand + mode */

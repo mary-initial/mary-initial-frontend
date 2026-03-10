@@ -1,7 +1,7 @@
 import { StyleSheet, TextStyle, ViewStyle } from "react-native";
-import { resolveSurfaceMode } from "../utils";
-import { SurfaceStyle, Theme } from "./index";
+import { SurfaceStyle, Theme } from "./types";
 import { fontRegular } from "./typography";
+import { resolveSurfaceMode } from "./utils";
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "compact";
 type ButtonVariantColor = {

@@ -1,9 +1,8 @@
 import { useMemo } from "react";
 import { StyleSheet, Text, View, type ViewStyle } from "react-native";
+import { BadgeCheck } from "../../icons";
 import type { Theme } from "../../theme";
-import { makeStyles, useTheme } from "../../theme";
-import { rem } from "../../theme/utils";
-import { default as CheckIcon } from "./badge-icon.svg";
+import { makeStyles, rem, useTheme } from "../../theme";
 
 export type BadgeSize = "large" | "small";
 export type BadgeContent = "icon" | "number" | "none";
@@ -49,7 +48,7 @@ export const Badge = ({
       )}
       {size === "large" && content === "icon" && (
         <View style={badgeStyles.icon}>
-          <CheckIcon color={theme.colors.icon.impact.default} />
+          <BadgeCheck color={theme.colors.icon.impact.default} />
         </View>
       )}
       {size === "large" && content === "number" && (
