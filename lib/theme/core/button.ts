@@ -8,8 +8,8 @@ type ButtonVariantColor = {
   [key in ButtonVariant]: string;
 };
 type ButtonStyles = {
-  buttonContainer: ViewStyle | TextStyle;
-  buttonText: ViewStyle | TextStyle;
+  buttonContainer: ViewStyle;
+  buttonText: TextStyle;
 };
 export type ButtonStylesFactory = (
   variant: ButtonVariant,
