@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Figma Variables → Design Tokens sync script
  *
@@ -8,6 +9,7 @@
  * Workflow:
  *   1. Export Figma Variables from Figma Desktop using the flat JSON plugin export
  *      and save to lib/scripts/figma-tokens.json
+ *      NOTE: Plugin used for export: "Luckino - Variables Import/Export JSON & CSS"
  *   2. Run this script to generate lib/theme/tokens/*.ts from the JSON
  *
  * Alternatively, the JSON can be fetched via the Figma REST API if needed
@@ -22,19 +24,19 @@
  *   }
  */
 
-import { existsSync, readFileSync, writeFileSync } from 'fs';
-import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { existsSync, readFileSync, writeFileSync } from "fs";
+import { dirname, resolve } from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '..');
+const ROOT = resolve(__dirname, "..");
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 /** A leaf token node in the flat Figma export */
 interface FlatTokenLeaf {
-  value: Record<string, string | number | boolean> | string | number | boolean;
-  type: string;
+  $value: Record<string, string | number | boolean> | string | number | boolean;
+  $type: string;
   resolvedType?: string;
 }
 
@@ -49,10 +51,10 @@ type FigmaTokensJson = Record<string, Record<string, FlatTokenNode>>;
 /** Returns true if node is a leaf token (has both `value` and `type` keys) */
 function isLeaf(node: unknown): node is FlatTokenLeaf {
   return (
-    typeof node === 'object' &&
+    typeof node === "object" &&
     node !== null &&
-    'value' in node &&
-    'type' in node &&
+    "$value" in node &&
+    "$type" in node &&
     !Array.isArray(node)
   );
 }
@@ -72,42 +74,52 @@ function toCamelCase(str: string): string {
 function resolveAlias(
   alias: string,
   modeName: string | null,
-  json: FigmaTokensJson,
+  json: FigmaTokensJson
 ): string | number | null {
   const match = alias.match(/^\{(.+)\}$/);
   if (!match) return alias;
 
-  const path = match[1].split('.');
+  const path = match[1].split(".");
   let current: unknown = json;
 
-  for (const segment of path) {
-    if (typeof current !== 'object' || current === null) return null;
+  for (let segment of path) {
+    segment = segment.replaceAll(/\s/g, "-"); // Ensure segments with whitespace is converted to use hyphen
+    if (typeof current !== "object" || current === null) return null;
     current = (current as Record<string, unknown>)[segment];
   }
 
   if (!isLeaf(current)) return null;
 
   // Flat leaf (Motion) — value is a direct primitive
-  if (typeof current.value === 'string' || typeof current.value === 'number') {
-    const v = current.value;
-    if (typeof v === 'string' && v.startsWith('{')) {
+  if (
+    typeof current.$value === "string" ||
+    typeof current.$value === "number"
+  ) {
+    const v = current.$value;
+    if (typeof v === "string" && v.startsWith("{")) {
       return resolveAlias(v, modeName, json);
     }
     return v as string | number;
   }
 
   // Mode-keyed leaf — extract the mode value
-  if (typeof current.value === 'object' && current.value !== null && modeName) {
-    const modeValue = (current.value as Record<string, unknown>)[modeName];
+  if (
+    typeof current.$value === "object" &&
+    current.$value !== null &&
+    modeName
+  ) {
+    const modeValue = (current.$value as Record<string, unknown>)[modeName];
     if (modeValue === undefined) {
       // Fall back to first available mode
-      const fallback = Object.values(current.value as Record<string, unknown>)[0];
-      if (typeof fallback === 'string' && fallback.startsWith('{')) {
+      const fallback = Object.values(
+        current.$value as Record<string, unknown>
+      )[0];
+      if (typeof fallback === "string" && fallback.startsWith("{")) {
         return resolveAlias(fallback, modeName, json);
       }
       return fallback as string | number | null;
     }
-    if (typeof modeValue === 'string' && modeValue.startsWith('{')) {
+    if (typeof modeValue === "string" && modeValue.startsWith("{")) {
       return resolveAlias(modeValue, modeName, json);
     }
     return modeValue as string | number;
@@ -127,7 +139,7 @@ function walkTokens(
   node: FlatTokenNode,
   modeName: string | null,
   json: FigmaTokensJson,
-  skipTypes: string[] = ['boolean'],
+  skipTypes: string[] = ["boolean"],
   customFormatter: (v: string | number | null) => any = (v) => v,
   fallbackModeName: string | null = null
 ): Record<string, unknown> {
@@ -137,23 +149,32 @@ function walkTokens(
     const key = toCamelCase(rawKey);
 
     if (isLeaf(child)) {
-      if (skipTypes.includes(child.type)) continue;
+      if (skipTypes.includes(child.$type)) continue;
 
       let resolvedValue: string | number | null = null;
 
       if (modeName === null) {
         // Flat leaf (Motion)
-        if (typeof child.value === 'string' || typeof child.value === 'number') {
-          resolvedValue = customFormatter(child.value);
+        if (
+          typeof child.$value === "string" ||
+          typeof child.$value === "number"
+        ) {
+          resolvedValue = customFormatter(child.$value);
         }
-      } else if (typeof child.value === 'object' && child.value !== null && !Array.isArray(child.value)) {
+      } else if (
+        typeof child.$value === "object" &&
+        child.$value !== null &&
+        !Array.isArray(child.$value)
+      ) {
         // Mode-keyed leaf
-        let modeValue = (child.value as Record<string, unknown>)[modeName];
+        let modeValue = (child.$value as Record<string, unknown>)[modeName];
         if (modeValue === undefined && fallbackModeName !== null) {
-          modeValue = (child.value as Record<string, unknown>)[fallbackModeName];
+          modeValue = (child.$value as Record<string, unknown>)[
+            fallbackModeName
+          ];
         }
         if (modeValue === undefined) continue;
-        if (typeof modeValue === 'string' && modeValue.startsWith('{')) {
+        if (typeof modeValue === "string" && modeValue.startsWith("{")) {
           resolvedValue = resolveAlias(modeValue, modeName, json);
         } else {
           resolvedValue = customFormatter(modeValue as string | number);
@@ -165,7 +186,13 @@ function walkTokens(
       }
     } else {
       // Nested node — recurse
-      const nested = walkTokens(child as FlatTokenNode, modeName, json, skipTypes, customFormatter);
+      const nested = walkTokens(
+        child as FlatTokenNode,
+        modeName,
+        json,
+        skipTypes,
+        customFormatter
+      );
       if (Object.keys(nested).length > 0) {
         result[key] = nested;
       }
@@ -178,26 +205,26 @@ function walkTokens(
 // ─── Serialisation ───────────────────────────────────────────────────────────
 
 function objectToTs(obj: Record<string, unknown>, indent = 2): string {
-  const pad = ' '.repeat(indent);
+  const pad = " ".repeat(indent);
   const lines = Object.entries(obj).map(([k, v]) => {
     // Quote keys that start with a digit or contain hyphens/spaces
     const key = /^\d|[-\s]/.test(k) ? `'${k}'` : k;
-    if (typeof v === 'object' && v !== null) {
-      if (Array.isArray(v)) return `${pad}${key}: [${v.join(', ')}],`
+    if (typeof v === "object" && v !== null) {
+      if (Array.isArray(v)) return `${pad}${key}: [${v.join(", ")}],`;
       return `${pad}${key}: ${objectToTs(v as Record<string, unknown>, indent + 2)},`;
     }
     return `${pad}${key}: ${JSON.stringify(v)},`;
   });
-  return `{\n${lines.join('\n')}\n${' '.repeat(indent - 2)}}`;
+  return `{\n${lines.join("\n")}\n${" ".repeat(indent - 2)}}`;
 }
 
 function writeTokenFile(
   filename: string,
   exportName: string,
   typeName: string,
-  content: Record<string, unknown>,
+  content: Record<string, unknown>
 ): void {
-  const path = resolve(ROOT, 'theme', 'tokens', filename);
+  const path = resolve(ROOT, "theme", "tokens", filename);
   const ts = [
     `// GENERATED from Figma Variables — run npm run tokens:sync to update`,
     ``,
@@ -205,59 +232,26 @@ function writeTokenFile(
     ``,
     `export type ${typeName} = typeof ${exportName};`,
     ``,
-  ].join('\n');
-  writeFileSync(path, ts, 'utf-8');
+  ].join("\n");
+  writeFileSync(path, ts, "utf-8");
   console.log(`  ✓ Written theme/tokens/${filename}`);
-}
-
-// ─── TOKENS.md ───────────────────────────────────────────────────────────────
-
-function writeTokensMarkdown(
-  sections: Record<string, Record<string, unknown>>,
-): void {
-  const flatten = (obj: Record<string, unknown>, prefix = ''): [string, unknown][] =>
-    Object.entries(obj).flatMap(([k, v]) =>
-      typeof v === 'object' && v !== null
-        ? flatten(v as Record<string, unknown>, prefix ? `${prefix}.${k}` : k)
-        : [[prefix ? `${prefix}.${k}` : k, v]],
-    );
-
-  const lines: string[] = [
-    '# Design Tokens Reference',
-    '',
-    '> Auto-generated — run `npm run tokens:sync` to update.',
-    '',
-  ];
-
-  for (const [sectionName, tokens] of Object.entries(sections)) {
-    lines.push(`## ${sectionName}`, '');
-    lines.push('| Token | Value |', '|---|---|');
-    for (const [key, value] of flatten(tokens)) {
-      lines.push(`| \`${key}\` | \`${value}\` |`);
-    }
-    lines.push('');
-  }
-
-  const path = resolve(ROOT, 'theme', 'TOKENS.md');
-  writeFileSync(path, lines.join('\n'), 'utf-8');
-  console.log('  ✓ Written theme/TOKENS.md');
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 function loadFromFile(): FigmaTokensJson {
-  const path = resolve(__dirname, 'figma-tokens.json');
+  const path = resolve(__dirname, "figma-tokens.json");
   if (!existsSync(path)) {
     throw new Error(
       `figma-tokens.json not found at ${path}.\n` +
-        'Export variables from Figma Desktop and save to lib/scripts/figma-tokens.json',
+        "Export variables from Figma Desktop and save to lib/scripts/figma-tokens.json"
     );
   }
-  return JSON.parse(readFileSync(path, 'utf-8')) as FigmaTokensJson;
+  return JSON.parse(readFileSync(path, "utf-8")) as FigmaTokensJson;
 }
 
 function main() {
-  console.log('🔄 Syncing Figma Variables → design tokens...\n');
+  console.log("🔄 Syncing Figma Variables → design tokens...\n");
 
   const json = loadFromFile();
 
@@ -266,113 +260,206 @@ function main() {
   // ── Colors ─────────────────────────────────────────────────────────────────
   // Extract 4 modes: MARYS → marys, Dark → dark, Aktivitet → aktivitet, Viden → viden
   // Nested under Colors.base (and surface, etc.)
-  const colorsNode = json['Colors'] as Record<string, FlatTokenNode>;
-  if (!colorsNode) throw new Error('Colors collection not found in figma-tokens.json');
+  const colorsNode = json["Colors"] as Record<string, FlatTokenNode>;
+  if (!colorsNode)
+    throw new Error("Colors collection not found in figma-tokens.json");
 
   const colorModes: Record<string, string> = {
-    marys: 'MARYS',
-    dark: 'Dark',
-    aktivitet: 'Aktivitet',
-    viden: 'Viden',
+    marysLight: "MARYS Light",
+    marysDark: "MARYS Dark",
+    aktivitetLight: "Aktivitet Light",
+    aktivitetDark: "Aktivitet Dark",
+    videnLight: "Viden Light",
+    videnDark: "Viden Dark",
   };
 
   const screenModes: Record<string, string> = {
-    mobile: 'Mobile',
-    tablet: 'Tablet',
-    desktop: 'Desktop'
-  }
+    mobile: "Mobile",
+    tablet: "Tablet",
+    desktop: "Desktop",
+  };
 
   const colorTokens: Record<string, unknown> = {};
   for (const [tokenKey, modeName] of Object.entries(colorModes)) {
     colorTokens[tokenKey] = walkTokens(colorsNode, modeName, json);
   }
-  writeTokenFile('colors.ts', 'colorTokens', 'ColorTokens', colorTokens);
+  writeTokenFile("colors.ts", "colorTokens", "ColorTokens", colorTokens);
 
   // ── Spacing ────────────────────────────────────────────────────────────────
-  const spacingNode = json['Spacing'] as Record<string, FlatTokenNode>;
-  if (!spacingNode) throw new Error('Spacing collection not found in figma-tokens.json');
-  
+  const spacingNode = json["Spacing"] as Record<string, FlatTokenNode>;
+  if (!spacingNode)
+    throw new Error("Spacing collection not found in figma-tokens.json");
+
   // base → spacing.ts (numeric scale, value-as-key)
-  const spacingBase = spacingNode['base'];
-  if (!spacingBase) throw new Error('Spacing.base not found');
+  const spacingBase = spacingNode["base"];
+  if (!spacingBase) throw new Error("Spacing.base not found");
 
   const spacingTokens: Record<string, unknown> = {};
   let prevSpacingModeName: string | null = null;
   for (const [tokenKey, modeName] of Object.entries(screenModes)) {
-    spacingTokens[tokenKey] = walkTokens(spacingBase as Record<string, FlatTokenNode>, modeName, json, undefined, undefined, prevSpacingModeName);
+    spacingTokens[tokenKey] = walkTokens(
+      spacingBase as Record<string, FlatTokenNode>,
+      modeName,
+      json,
+      undefined,
+      undefined,
+      prevSpacingModeName
+    );
     prevSpacingModeName = modeName;
   }
-  writeTokenFile('spacing.ts', 'spacingTokens', 'SpacingTokens', spacingTokens);
+  writeTokenFile("spacing.ts", "spacingTokens", "SpacingTokens", spacingTokens);
+
+  // container → container.ts (semantic names, camelCased)
+  const containerNode = spacingNode["container"] as Record<
+    string,
+    FlatTokenNode
+  >;
+  if (!containerNode)
+    throw new Error("Spacing collection not found in figma-tokens.json");
+
+  const containerTokens: Record<string, unknown> = {};
+  let prevContainerModeName: string | null = null;
+  for (const [tokenKey, modeName] of Object.entries(screenModes)) {
+    containerTokens[tokenKey] = walkTokens(
+      containerNode as Record<string, FlatTokenNode>,
+      modeName,
+      json,
+      undefined,
+      undefined,
+      prevContainerModeName
+    );
+    prevContainerModeName = modeName;
+  }
+  writeTokenFile(
+    "container.ts",
+    "containerTokens",
+    "ContainerTokens",
+    containerTokens
+  );
+
+  // grid → grid.ts (semantic names, camelCased)
+  const gridNode = spacingNode["grid"] as Record<string, FlatTokenNode>;
+  if (!gridNode)
+    throw new Error("Spacing collection not found in figma-tokens.json");
+
+  const gridTokens: Record<string, unknown> = {};
+  let prevGridModeName: string | null = null;
+  for (const [tokenKey, modeName] of Object.entries(screenModes)) {
+    gridTokens[tokenKey] = walkTokens(
+      gridNode as Record<string, FlatTokenNode>,
+      modeName,
+      json,
+      undefined,
+      undefined,
+      prevGridModeName
+    );
+    prevGridModeName = modeName;
+  }
+  writeTokenFile("grid.ts", "gridTokens", "GridTokens", gridTokens);
 
   // corner radius → radius.ts (semantic names, camelCased)
-  const cornerRadiusNode = spacingNode['corner radius'];
-  if (!cornerRadiusNode) throw new Error('Spacing["corner radius"] not found');
+  const cornerRadiusNode = spacingNode["corner-radius"];
+  if (!cornerRadiusNode) throw new Error('Spacing["corner-radius"] not found');
 
   const radiusTokens: Record<string, unknown> = {};
   let prevRadiusModeName: string | null = null;
   for (const [tokenKey, modeName] of Object.entries(screenModes)) {
-    radiusTokens[tokenKey] = walkTokens(cornerRadiusNode as Record<string, FlatTokenNode>, modeName, json, undefined, undefined, prevRadiusModeName);
+    radiusTokens[tokenKey] = walkTokens(
+      cornerRadiusNode as Record<string, FlatTokenNode>,
+      modeName,
+      json,
+      undefined,
+      undefined,
+      prevRadiusModeName
+    );
     prevRadiusModeName = modeName;
   }
 
-  writeTokenFile('radius.ts', 'radiusTokens', 'RadiusTokens', radiusTokens);
+  writeTokenFile("radius.ts", "radiusTokens", "RadiusTokens", radiusTokens);
 
   // ── Type ───────────────────────────────────────────────────────────────────
-  const typeNode = json['Type'] as Record<string, FlatTokenNode>;
-  if (!typeNode) throw new Error('Type collection not found in figma-tokens.json');
+  const typeNode = json["Type"] as Record<string, FlatTokenNode>;
+  if (!typeNode)
+    throw new Error("Type collection not found in figma-tokens.json");
 
   const typographyTokens: Record<string, unknown> = {};
   let prevTypeModeName: string | null = null;
   for (const [tokenKey, modeName] of Object.entries(screenModes)) {
-    typographyTokens[tokenKey] = walkTokens(typeNode, modeName, json, undefined, undefined, prevTypeModeName);
+    typographyTokens[tokenKey] = walkTokens(
+      typeNode,
+      modeName,
+      json,
+      undefined,
+      undefined,
+      prevTypeModeName
+    );
     prevTypeModeName = modeName;
 
     // Map Figma font variant names to React Native-compatible fontWeight values.
     // Figma uses weight names ("Bold", "Regular") that don't match RN's accepted values.
     const figmaWeightToRN: Record<string, string> = {
-      Regular: '400',
-      Book: '300',
-      Bold: '700',
-      Light: '300',
-      Poster: '900',
+      Regular: "400",
+      Book: "300",
+      Bold: "700",
+      Light: "300",
+      Poster: "900",
     };
-    const baseFonts = (typographyTokens[tokenKey] as Record<string, unknown>)['base'] as Record<string, unknown> | undefined;
+    const baseFonts = (typographyTokens[tokenKey] as Record<string, unknown>)[
+      "base"
+    ] as Record<string, unknown> | undefined;
     if (baseFonts) {
       const fontWeightsRN: Record<string, string> = {};
-      for (const [key, value] of Object.entries(baseFonts)) {
-        if (typeof value === 'string' && figmaWeightToRN[value]) {
-          fontWeightsRN[key] = figmaWeightToRN[value];
+      for (const value of Object.values(baseFonts)) {
+        if (typeof value === "string" && figmaWeightToRN[value]) {
+          fontWeightsRN[value] = figmaWeightToRN[value];
         }
       }
       if (Object.keys(fontWeightsRN).length > 0) {
-        (typographyTokens[tokenKey] as Record<string, unknown>)['fontWeightsRN'] = fontWeightsRN;
+        (typographyTokens[tokenKey] as Record<string, unknown>)[
+          "fontWeightsRN"
+        ] = fontWeightsRN;
       }
     }
   }
 
-  writeTokenFile('typography.ts', 'typographyTokens', 'TypographyTokens', typographyTokens);
+  writeTokenFile(
+    "typography.ts",
+    "typographyTokens",
+    "TypographyTokens",
+    typographyTokens
+  );
 
   // ── Motion ─────────────────────────────────────────────────────────────────
-  const motionNode = json['Motion'] as Record<string, FlatTokenNode>;
-  if (!motionNode) throw new Error('Motion collection not found in figma-tokens.json');
+  const motionNode = json["Motion"] as Record<string, FlatTokenNode>;
+  if (!motionNode)
+    throw new Error("Motion collection not found in figma-tokens.json");
 
   // Motion values are flat (no mode keys) — pass null as modeName
   const animationFormatter = (v: string | number | null) => {
     // Convert cubic-bezier curves to arrays
-    if (!v || typeof v !== 'string' || !v.startsWith('cubic-bezier')) return v;
-    
-    const value = v.match(/\d{1,2}(\.\d{1,2})?/g)
+    if (!v || typeof v !== "string" || !v.startsWith("cubic-bezier")) return v;
+
+    const value = v.match(/\d{1,2}(\.\d{1,2})?/g);
     if (!value?.length) return v;
     return value.map((v) => parseFloat(v));
-  }
-  const animationTokens = walkTokens(motionNode, null, json, undefined, animationFormatter);
+  };
+  const animationTokens = walkTokens(
+    motionNode,
+    null,
+    json,
+    undefined,
+    animationFormatter
+  );
 
-  writeTokenFile('animations.ts', 'animationTokens', 'AnimationTokens', animationTokens);
-  mdSections['Motion'] = animationTokens;
+  writeTokenFile(
+    "animations.ts",
+    "animationTokens",
+    "AnimationTokens",
+    animationTokens
+  );
+  mdSections["Motion"] = animationTokens;
 
-  writeTokensMarkdown(mdSections);
-
-  console.log('\n✅ Done! Commit the updated token files.');
+  console.log("\n✅ Done! Commit the updated token files.");
 }
 
 main();

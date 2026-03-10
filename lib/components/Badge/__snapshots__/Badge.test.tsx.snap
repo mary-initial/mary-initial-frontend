@@ -33,26 +33,26 @@ exports[`Badge LargeActiveIcon should match snapshot 1`] = `
           },
           {
             "height": 32,
+            "padding": 8,
             "width": 32,
           },
-          false,
           undefined,
         ]
       }
     >
-      <Text
+      <View
         style={
           {
-            "color": "#fffefd",
-            "fontSize": 16,
-            "fontWeight": "700",
-            "lineHeight": 17.5,
-            "textAlign": "center",
+            "height": 16,
+            "width": 16,
           }
         }
       >
-        ✓
-      </Text>
+        <View
+          accessibilityRole="image"
+          accessible={true}
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -91,9 +91,9 @@ exports[`Badge LargeActiveNone should match snapshot 1`] = `
           },
           {
             "height": 32,
+            "padding": 8,
             "width": 32,
           },
-          false,
           undefined,
         ]
       }
@@ -135,23 +135,29 @@ exports[`Badge LargeActiveNumber should match snapshot 1`] = `
           },
           {
             "height": 32,
+            "padding": 8,
             "width": 32,
           },
-          false,
           undefined,
         ]
       }
     >
       <Text
         style={
-          {
-            "color": "#fffefd",
-            "fontSize": 16,
-            "fontWeight": "400",
-            "letterSpacing": 0.20000000298023224,
-            "lineHeight": 17.5,
-            "textAlign": "center",
-          }
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0.20000000298023224,
+              "lineHeight": 17.5,
+            },
+            {
+              "color": "#fffefd",
+              "textAlign": "center",
+            },
+          ]
         }
       >
         1
@@ -194,28 +200,42 @@ exports[`Badge LargeDisabledIcon should match snapshot 1`] = `
           },
           {
             "height": 32,
+            "padding": 8,
             "width": 32,
-          },
-          {
-            "opacity": 0.4,
           },
           undefined,
         ]
       }
     >
-      <Text
+      <View
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "backgroundColor": "rgba(255, 255, 255, 0.8)",
+            },
+          ]
+        }
+      />
+      <View
         style={
           {
-            "color": "#fffefd",
-            "fontSize": 16,
-            "fontWeight": "700",
-            "lineHeight": 17.5,
-            "textAlign": "center",
+            "height": 16,
+            "width": 16,
           }
         }
       >
-        ✓
-      </Text>
+        <View
+          accessibilityRole="image"
+          accessible={true}
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -254,15 +274,30 @@ exports[`Badge LargeDisabledNone should match snapshot 1`] = `
           },
           {
             "height": 32,
+            "padding": 8,
             "width": 32,
-          },
-          {
-            "opacity": 0.4,
           },
           undefined,
         ]
       }
-    />
+    >
+      <View
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "backgroundColor": "rgba(255, 255, 255, 0.8)",
+            },
+          ]
+        }
+      />
+    </View>
   </View>
 </View>
 `;
@@ -300,25 +335,45 @@ exports[`Badge LargeDisabledNumber should match snapshot 1`] = `
           },
           {
             "height": 32,
+            "padding": 8,
             "width": 32,
-          },
-          {
-            "opacity": 0.4,
           },
           undefined,
         ]
       }
     >
+      <View
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "backgroundColor": "rgba(255, 255, 255, 0.8)",
+            },
+          ]
+        }
+      />
       <Text
         style={
-          {
-            "color": "#fffefd",
-            "fontSize": 16,
-            "fontWeight": "400",
-            "letterSpacing": 0.20000000298023224,
-            "lineHeight": 17.5,
-            "textAlign": "center",
-          }
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 0.20000000298023224,
+              "lineHeight": 17.5,
+            },
+            {
+              "color": "#fffefd",
+              "textAlign": "center",
+            },
+          ]
         }
       >
         1
@@ -363,7 +418,6 @@ exports[`Badge SmallActive should match snapshot 1`] = `
             "height": 16,
             "width": 16,
           },
-          false,
           undefined,
         ]
       }
@@ -407,13 +461,27 @@ exports[`Badge SmallDisabled should match snapshot 1`] = `
             "height": 16,
             "width": 16,
           },
-          {
-            "opacity": 0.4,
-          },
           undefined,
         ]
       }
-    />
+    >
+      <View
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "backgroundColor": "rgba(255, 255, 255, 0.8)",
+            },
+          ]
+        }
+      />
+    </View>
   </View>
 </View>
 `;

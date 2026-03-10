@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { StyleSheet, Text, View, type ViewStyle } from "react-native";
+import { BadgeCheck } from "../../icons";
 import type { Theme } from "../../theme";
-import { makeStyles, useTheme } from "../../theme";
+import { makeStyles, rem, useTheme } from "../../theme";
 
 export type BadgeSize = "large" | "small";
 export type BadgeContent = "icon" | "number" | "none";
@@ -24,24 +25,34 @@ export const Badge = ({
   testID,
   style,
 }: BadgeProps) => {
-  const { theme } = useTheme();
-  const styles = useMemo(() => createStyles(theme), [theme]);
+  const { theme, styles } = useTheme();
+  const themeTextStyles = styles.textStyles();
+  const badgeStyles = useMemo(() => createStyles(theme), [theme]);
 
   const containerStyles = [
-    styles.base,
-    size === "large" ? styles.large : styles.small,
-    disabled && styles.disabled,
+    badgeStyles.base,
+    size === "large" ? badgeStyles.large : badgeStyles.small,
     style,
   ];
 
+  const textStyles = [themeTextStyles.description, badgeStyles.text];
+
   return (
     <View style={containerStyles} testID={testID}>
+      {disabled ? (
+        <View
+          style={[StyleSheet.absoluteFillObject, badgeStyles.disabledContainer]}
+        />
+      ) : (
+        <></>
+      )}
       {size === "large" && content === "icon" && (
-        // TODO: Replace with proper icon component when icon library is added
-        <Text style={styles.iconText}>✓</Text>
+        <View style={badgeStyles.icon}>
+          <BadgeCheck color={theme.colors.icon.impact.default} />
+        </View>
       )}
       {size === "large" && content === "number" && (
-        <Text style={styles.numberText}>{number}</Text>
+        <Text style={textStyles}>{number}</Text>
       )}
     </View>
   );
@@ -58,28 +69,22 @@ const createStyles = makeStyles((theme: Theme) =>
     large: {
       width: theme.spacing[32],
       height: theme.spacing[32],
+      padding: theme.container.section.gapSmall,
     },
     small: {
       width: theme.spacing[16],
       height: theme.spacing[16],
     },
-    disabled: {
-      opacity: 0.4,
+    disabledContainer: {
+      backgroundColor: theme.colors.base.interaction.disabled,
     },
-    iconText: {
+    icon: {
+      width: rem(1),
+      height: rem(1),
+    },
+    text: {
       color: theme.colors.icon.impact.default,
-      fontSize: theme.typography.description.size,
-      lineHeight: theme.typography.description.lineheight,
-      fontWeight: theme.typography.fontWeightsRN.bold,
       textAlign: "center",
     },
-    numberText: {
-      color: theme.colors.icon.impact.default,
-      fontSize: theme.typography.description.size,
-      lineHeight: theme.typography.description.lineheight,
-      letterSpacing: theme.typography.description.letterspacing,
-      fontWeight: theme.typography.fontWeightsRN.regular,
-      textAlign: "center",
-    },
-  }),
+  })
 );

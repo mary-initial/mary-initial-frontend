@@ -1,6 +1,7 @@
 import { withBackgrounds } from "@storybook/addon-ondevice-backgrounds";
 import type { Preview } from "@storybook/react-native";
 import { Platform } from "react-native";
+import { useThemeFonts } from "../../plugin";
 import type { BrandName, ColorMode } from "../../theme";
 import { MaryUIProvider } from "../../theme";
 import { ScreenMode } from "../../theme/types";
@@ -63,9 +64,17 @@ const preview: Preview = {
     (Story, context) => {
       const brand = (context.globals?.brand as BrandName) ?? "marys";
       const mode = (context.globals?.colorMode as ColorMode) ?? "light";
-      const screenMode = (context.globals?.screenMode as ScreenMode) ?? "mobile";
+      const screenMode =
+        (context.globals?.screenMode as ScreenMode) ?? "mobile";
+
+      useThemeFonts();
+
       return (
-        <MaryUIProvider brandName={brand} colorModeOverride={mode} screenModeOverride={screenMode}>
+        <MaryUIProvider
+          brandName={brand}
+          colorModeOverride={mode}
+          screenModeOverride={screenMode}
+        >
           <Story />
         </MaryUIProvider>
       );

@@ -13,7 +13,10 @@ import {
   MaryUIProvider,
   Progression,
   ProgressionFill,
+  useThemeFonts,
 } from "@marys-ui";
+import { SplashScreen } from "expo-router";
+import { useEffect } from "react";
 
 const tabScreens = [
   { name: "index", title: "MARYS", Icon: MaryHome, IconFill: MaryHomeFill },
@@ -34,12 +37,24 @@ const tabScreens = [
 ];
 
 export default function RootLayout() {
+  const [loaded, error] = useThemeFonts();
+
   const client = new ApolloClient({
     link: new HttpLink({
       uri: process.env.EXPO_PUBLIC_API_URL,
     }),
     cache: new InMemoryCache(),
   });
+
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
 
   return (
     <ApolloProvider client={client}>
