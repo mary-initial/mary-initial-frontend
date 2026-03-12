@@ -1,13 +1,8 @@
 name: Publish preview update
 
 on:
-  pull_request:
-    branches:
-      - "feature/**"
-    types:
-      - synchronize
-    paths:
-      - !applications/mary-ui-app/**
+  pull_request_labeled:
+    - Preview
 
 jobs:
   publish_preview_update:
