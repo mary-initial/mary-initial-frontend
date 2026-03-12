@@ -1,0 +1,21 @@
+name: Create Production Builds
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["mary-guiden-v1*", "mary-guiden-v2*", "mary-guiden-v3*"]
+
+jobs:
+  require_approval:
+    name: Build production build?
+    type: require-approval
+  build_android:
+    type: build # This job type creates a production build for Android
+    needs: [require-approval]
+    params:
+      platform: android
+  build_ios:
+    type: build # This job type creates a production build for iOS
+    needs: [require-approval]
+    params:
+      platform: ios

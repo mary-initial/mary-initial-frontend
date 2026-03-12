@@ -21,6 +21,7 @@
   "scripts": {
     "watchman": "watchman watch-del './' ; watchman watch-project './'",
     "test": "npm run test --workspace=lib && maestro test .maestro/",
+    "lib:build": "npm run build --workspace=lib",
     "lib:watch": "npm run watch --workspace=lib",
     "lib:dev": "npm run dev --workspace=lib",
     "lib:ios": "npm run dev:ios --workspace=lib",
