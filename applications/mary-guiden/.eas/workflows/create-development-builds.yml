@@ -25,3 +25,7 @@ jobs:
       profile: development-simulator
   github_comment:
     type: github-comment
+    after:
+      - ios_simulator_development_build
+      - ios_device_development_build
+      - android_development_build
