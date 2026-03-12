@@ -12,10 +12,11 @@ const GET_GREETING = graphql(`
 `);
 
 export default function Marys() {
-  const { loading, error, data } = useQuery(GET_GREETING);
+  const { loading, data } = useQuery(GET_GREETING);
 
   if (loading) return <Text>Loading...</Text>;
-  if (error) return <Text>Error: {error.message}</Text>;
+
+  const message = data?.greeting?.message;
 
   return (
     <View
@@ -27,7 +28,7 @@ export default function Marys() {
     >
       <SafeAreaView>
         <Text>Mary&apos;s Page</Text>
-        <Text style={{ marginBottom: 20 }}>{data?.greeting?.message}</Text>
+        {message ? <Text style={{ marginBottom: 20 }}>{message}</Text> : <></>}
       </SafeAreaView>
     </View>
   );
