@@ -14,9 +14,9 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.58.2-noble
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "24"
           cache: "npm"
@@ -27,7 +27,7 @@ jobs:
           npm run lib:build
           npm run test --workspace=lib
       - name: Upload test coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: test-coverage
           path: lib/coverage
