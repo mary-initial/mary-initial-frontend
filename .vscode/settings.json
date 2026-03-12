@@ -7,5 +7,11 @@
   "yaml.validate": false, // just for now
   "editor.indentSize": 2,
   "editor.detectIndentation": true,
-  "prettier.useTabs": false
+  "prettier.useTabs": false,
+  "eslint.workingDirectories": [
+    "applications/mary-guiden",
+    "applications/mary-ui-app",
+    "lib",
+    "lib/storybook"
+  ]
 }

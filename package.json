@@ -19,20 +19,21 @@
     "applications/mary-ui-app"
   ],
   "scripts": {
+    "lint": "npm run lint -w=lib && npm run lint -w=applications/mary-guiden && npm run lint -w=applications/mary-ui-app",
     "watchman": "watchman watch-del './' ; watchman watch-project './'",
-    "test": "npm run test --workspace=lib && maestro test .maestro/",
-    "lib:build": "npm run build --workspace=lib",
-    "lib:watch": "npm run watch --workspace=lib",
-    "lib:dev": "npm run dev --workspace=lib",
-    "lib:ios": "npm run dev:ios --workspace=lib",
-    "lib:android": "npm run dev:android --workspace=lib",
+    "test": "npm run test -w=lib && maestro test .maestro/",
+    "lib:build": "npm run build -w=lib",
+    "lib:watch": "npm run watch -w=lib",
+    "lib:dev": "npm run dev -w=lib",
+    "lib:ios": "npm run dev:ios -w=lib",
+    "lib:android": "npm run dev:android -w=lib",
     "mary-guiden:dev": "npm run lib:watch & npm run mary-guiden",
-    "mary-guiden": "npm run start --workspace=applications/mary-guiden",
-    "mary-guiden:ios": "npm run ios --workspace=applications/mary-guiden",
-    "mary-guiden:android": "npm run android --workspace=applications/mary-guiden",
-    "mary-guiden:web": "npm run web --workspace=applications/mary-guiden",
-    "mary-ui-app": "npm run start --workspace=applications/mary-ui-app",
-    "mary-ui-app:ios": "npm run ios --workspace=applications/mary-ui-app",
-    "mary-ui-app:android": "npm run android --workspace=applications/mary-ui-app"
+    "mary-guiden": "npm run start -w=applications/mary-guiden",
+    "mary-guiden:ios": "npm run ios -w=applications/mary-guiden",
+    "mary-guiden:android": "npm run android -w=applications/mary-guiden",
+    "mary-guiden:web": "npm run web -w=applications/mary-guiden",
+    "mary-ui-app": "npm run start -w=applications/mary-ui-app",
+    "mary-ui-app:ios": "npm run ios -w=applications/mary-ui-app",
+    "mary-ui-app:android": "npm run android -w=applications/mary-ui-app"
   }
 }
