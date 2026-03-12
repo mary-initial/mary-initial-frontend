@@ -28,7 +28,7 @@ export default function Marys() {
     >
       <SafeAreaView>
         <Text>Mary&apos;s Page</Text>
-        {message ? <Text style={{ marginBottom: 20 }}>{message}</Text> : <></>}
+        {message && <Text style={{ marginBottom: 20 }}>{message}</Text>}
       </SafeAreaView>
     </View>
   );
