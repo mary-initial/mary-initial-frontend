@@ -7,8 +7,8 @@ const envVars: Record<ENV, string | undefined> = {
 };
 
 /**
- * Gets an environment variable from the node process
+ * Gets an environment variable value
  * @param envKey The environment variable key defined by @see ENV
- * @returns The environmen variable value or null if no value exists
+ * @returns The environment variable value or null if no value exists
  */
 export const env = (envKey: ENV): string | null => envVars[envKey] ?? null;
