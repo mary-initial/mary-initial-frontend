@@ -1,0 +1,19 @@
+name: Publish development update
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - synchronize
+    paths:
+      - applications/mary-guiden/**
+      - lib/**
+
+jobs:
+  publish_dev_update:
+    name: Publish development update
+    type: update
+    environment: development
+    params:
+      branch: ${{ github.ref_name || 'test' }}
