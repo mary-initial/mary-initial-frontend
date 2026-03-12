@@ -3,7 +3,7 @@ name: Create Production Builds
 on:
   push:
     branches: ["main"]
-    tags: ["v1*", "v2*", "v3*"]
+    tags: ["mary-guiden-v1*", "mary-guiden-v2*", "mary-guiden-v3*"]
     paths:
       - !applications/mary-ui-app/**
 
