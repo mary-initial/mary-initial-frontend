@@ -1,8 +1,6 @@
 name: PR Checks
 
 on:
-  push:
-    branches: [feature/ci-setup] # TODO: remove after verifying workflow
   pull_request:
     branches: [main]
 

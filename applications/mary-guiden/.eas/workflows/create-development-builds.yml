@@ -23,3 +23,5 @@ jobs:
     params:
       platform: ios
       profile: development-simulator
+  github_comment:
+    type: github-comment

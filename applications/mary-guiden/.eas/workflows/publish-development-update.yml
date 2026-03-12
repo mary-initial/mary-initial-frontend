@@ -12,8 +12,11 @@ on:
 
 jobs:
   publish_dev_update:
+    if: ${{ contains(github.label, 'Test') }}
     name: Publish development update
     type: update
     environment: development
     params:
       branch: ${{ github.ref_name || 'test' }}
+  github_comment:
+    type: github-comment
