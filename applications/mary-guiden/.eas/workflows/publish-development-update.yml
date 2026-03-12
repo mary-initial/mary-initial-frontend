@@ -12,7 +12,7 @@ on:
 
 jobs:
   publish_dev_update:
-    if: ${{ contains(github.label, 'Test') }}
+    if: ${{ contains(github.label, 'mary-guiden-app:test') }}
     name: Publish development update
     type: update
     environment: development

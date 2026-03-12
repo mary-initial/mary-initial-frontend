@@ -2,7 +2,7 @@ name: Create development builds
 
 on:
   pull_request_labeled:
-    - Test
+    - mary-guiden-app:test
 
 jobs:
   android_development_build:
