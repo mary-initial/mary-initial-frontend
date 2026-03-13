@@ -1,0 +1,37 @@
+name: Create Production Builds
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["mary-guiden-v1*", "mary-guiden-v2*", "mary-guiden-v3*"]
+
+jobs:
+  # Build preview builds
+  build_preview_android:
+    type: build
+    params:
+      platform: android
+      profile: preview
+  build_preview_ios:
+    type: build
+    params:
+      platform: ios
+      profile: preview
+
+  # Require approval
+  require_approval:
+    name: Continue Build to create production build?
+    type: require-approval
+    needs: [build_preview_android, build_preview_ios]
+
+  # Build production builds
+  build_android:
+    type: build # This job type creates a production build for Android
+    needs: [require_approval]
+    params:
+      platform: android
+  build_ios:
+    type: build # This job type creates a production build for iOS
+    needs: [require_approval]
+    params:
+      platform: ios

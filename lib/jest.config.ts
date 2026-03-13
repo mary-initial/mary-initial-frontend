@@ -7,6 +7,9 @@ const config: Config = {
   },
   preset: "react-native",
   displayName: "marys-ui",
+  reporters: process.env.GITHUB_ACTIONS
+    ? [["github-actions", { silent: false }], "summary"]
+    : ["default"],
   testPathIgnorePatterns: ["<rootDir>/storybook"],
   transformIgnorePatterns: [
     "<rootDir>/../node_modules/(?!(@react-native|react-native|storybook|@storybook)/)",

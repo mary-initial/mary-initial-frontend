@@ -9,15 +9,18 @@
     ],
     "deny": [
       "Bash(curl *)",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)"
+      "Read(/.env)",
+      "Read(/.env.*)",
+      "Read(/**/*.keystore)",
+      "Read(/**/credentials.json)",
+      "Read(/**/*.mobileprovision)",
+      "Read(/**/*.p12)",
+      "Read(/**/android/keystores/*)",
+      "Read(/**/ios/certs/*)"
     ]
   },
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
   },
-  "allowedMcpServers": [
-    { "serverName": "figma-desktop" }
-  ]
+  "allowedMcpServers": [{ "serverName": "figma-desktop" }]
 }

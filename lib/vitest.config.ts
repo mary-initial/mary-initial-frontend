@@ -8,6 +8,9 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   test: {
+    reporters: process.env.GITHUB_ACTIONS
+      ? ["default", "github-actions"]
+      : ["default"],
     projects: [
       {
         plugins: [
