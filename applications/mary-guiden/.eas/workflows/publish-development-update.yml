@@ -1,0 +1,26 @@
+name: Publish development update
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - synchronize
+    # workflow base dir is applications/mary-guiden
+    paths:
+      - src/**
+      - app/**
+      - ../../lib/components/**
+      - ../../lib/theme/**
+
+jobs:
+  publish_dev_update:
+    if: ${{ contains(toJSON(github.event.pull_request.labels), '"name":"mary-guiden-app:test"') }}
+    name: Publish development update
+    type: update
+    environment: development
+    params:
+      branch: ${{ github.ref_name || 'test' }}
+  github_comment:
+    needs: [publish_dev_update]
+    type: github-comment

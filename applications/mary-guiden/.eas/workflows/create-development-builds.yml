@@ -2,7 +2,7 @@ name: Create development builds
 
 on:
   pull_request_labeled:
-    - Test
+    - mary-guiden-app:test
 
 jobs:
   android_development_build:
@@ -23,3 +23,9 @@ jobs:
     params:
       platform: ios
       profile: development-simulator
+  github_comment:
+    type: github-comment
+    after:
+      - ios_simulator_development_build
+      - ios_device_development_build
+      - android_development_build
