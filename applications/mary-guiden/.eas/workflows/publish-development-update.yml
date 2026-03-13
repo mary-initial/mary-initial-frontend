@@ -6,9 +6,12 @@ on:
       - main
     types:
       - synchronize
+    # workflow base dir is applications/mary-guiden
     paths:
-      - applications/mary-guiden/**
-      - lib/**
+      - src/**
+      - app/**
+      - ../../lib/components/**
+      - ../../lib/theme/**
 
 jobs:
   publish_dev_update:
