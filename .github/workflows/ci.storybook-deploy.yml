@@ -3,7 +3,7 @@ name: Storybook Build and Publish
 on:
     push:
         branches:
-            - feat/build-and-publish-storybook
+            - main
         paths:
             - lib/**
             - .github/**
