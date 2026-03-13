@@ -2,17 +2,18 @@ name: Create Production Builds
 
 on:
   push:
-    branches: ["main"]
     tags: ["mary-guiden-v1*", "mary-guiden-v2*", "mary-guiden-v3*"]
 
 jobs:
   # Build preview builds
   build_preview_android:
+    if: ${{ github.ref_name == 'main' }}
     type: build
     params:
       platform: android
       profile: preview
   build_preview_ios:
+    if: ${{ github.ref_name == 'main' }}
     type: build
     params:
       platform: ios
