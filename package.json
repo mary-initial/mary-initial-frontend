@@ -32,6 +32,10 @@
     "mary-guiden:web": "npm run web --workspace=applications/mary-guiden",
     "mary-ui-app": "npm run start --workspace=applications/mary-ui-app",
     "mary-ui-app:ios": "npm run ios --workspace=applications/mary-ui-app",
-    "mary-ui-app:android": "npm run android --workspace=applications/mary-ui-app"
+    "mary-ui-app:android": "npm run android --workspace=applications/mary-ui-app",
+    "docs": "typedoc --options typedoc.json"
+  },
+  "devDependencies": {
+    "typedoc": "^0.28.17"
   }
 }

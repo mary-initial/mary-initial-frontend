@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": [
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
+    "applications/**/*.ts",
+    "applications/**/*.tsx"
+  ],
+  "exclude": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/__generated__/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.tsx",
+    "lib/storybook/**"
+  ]
+}
