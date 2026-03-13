@@ -2,7 +2,7 @@ name: Generate and deploy TypeDoc for frontend
 
 on:
     push:
-        branches: [feat/build-and-publish-storybook]
+        branches: [main]
         paths:
             - "lib/**/*.ts"
             - "lib/**/*.tsx"
