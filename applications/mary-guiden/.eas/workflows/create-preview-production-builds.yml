@@ -20,8 +20,9 @@ jobs:
 
   # Require approval
   require_approval:
-    name: Build production build?
+    name: Continue Build to create production build?
     type: require-approval
+    needs: [build_preview_android, build_preview_ios]
 
   # Build production builds
   build_android:
