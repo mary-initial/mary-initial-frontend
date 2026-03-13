@@ -25,7 +25,7 @@
     "lib:build": "npm run build -w=lib",
     "lib:watch": "npm run watch -w=lib",
     "lib:dev": "npm run dev -w=lib",
-    "lib:ios": "npm run dev:ios -w=lib",p
+    "lib:ios": "npm run dev:ios -w=lib",
     "lib:android": "npm run dev:android -w=lib",
     "mary-guiden:dev": "npm run lib:watch & npm run mary-guiden",
     "mary-guiden": "npm run start -w=applications/mary-guiden",
