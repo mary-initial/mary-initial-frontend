@@ -1,0 +1,22 @@
+{
+  "entryPoints": [
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
+    "applications/**/*.ts",
+    "applications/**/*.tsx"
+  ],
+  "out": "docs",
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.tsx",
+    "**/__generated__/**",
+    "**/dist/**",
+    "lib/storybook/**"
+  ],
+  "tsconfig": "tsconfig.json",
+  "includeVersion": true,
+  "skipErrorChecking": true
+}

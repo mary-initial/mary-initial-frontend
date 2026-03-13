@@ -34,6 +34,10 @@
     "mary-guiden:web": "npm run web -w=applications/mary-guiden",
     "mary-ui-app": "npm run start -w=applications/mary-ui-app",
     "mary-ui-app:ios": "npm run ios -w=applications/mary-ui-app",
-    "mary-ui-app:android": "npm run android -w=applications/mary-ui-app"
+    "mary-ui-app:android": "npm run android -w=applications/mary-ui-app",
+    "docs": "typedoc --options typedoc.json"
+  },
+  "devDependencies": {
+    "typedoc": "^0.28.17"
   }
 }
