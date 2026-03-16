@@ -5,10 +5,9 @@ import {
 import type { Preview } from "@storybook/react-native";
 import type { PropsWithChildren } from "react";
 import { themes } from "storybook/theming";
-import { useThemeFonts } from "../../plugin";
-import type { BrandName, ColorMode } from "../../theme";
 import { MaryUIProvider } from "../../theme";
-import { ScreenMode } from "../../theme/types";
+import { BrandName, ColorMode, ScreenMode } from "../../theme/core";
+import { useThemeFonts } from "../../theme/fonts";
 
 function ThemedDocsContainer({
   children,

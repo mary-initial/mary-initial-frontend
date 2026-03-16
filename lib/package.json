@@ -31,7 +31,7 @@
     "dev:ios": "npm run storybook:rn-ios & npm run storybook:web",
     "dev:android": "npm run storybook:rn-android & npm run storybook:web",
     "build": "tsc",
-    "postbuild": "rm -rf dist/fonts && mkdir dist/fonts && cp -r icons/*.svg dist/icons/ && cp -r fonts/*.ttf dist/fonts/",
+    "postbuild": "rm -rf dist/fonts && mkdir dist/fonts && cp -r icons/*.svg dist/icons/ && cp -r fonts/* dist/fonts/",
     "test": "jest && vitest run",
     "storybook": "storybook dev",
     "storybook:web": "npm run storybook -- --config-dir storybook/.storybook",

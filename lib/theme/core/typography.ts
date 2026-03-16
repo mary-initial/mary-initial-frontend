@@ -4,7 +4,7 @@ import { Theme, ThemeTypography } from "./types";
 
 /** Get base values from typography design tokens */
 const typographyBase = typographyTokens.mobile.base;
-const baseFont = "Inter"; // temp override until font files are in place... typographyBase.font;
+const baseFont = typographyBase.font;
 
 /** Mapping of font weight types */
 type TokenFontWeights = Exclude<
@@ -18,8 +18,8 @@ const fontFamilies: { [key in TokenFontWeights]: string } = {
   Light: baseFont + "-Light",
   Regular: baseFont + "-Regular",
   Bold: baseFont + "-Bold",
-  Poster: baseFont + "-ExtraBold",
-  Book: baseFont + "-Light",
+  Poster: baseFont + "-Poster",
+  Book: baseFont + "-Book",
 };
 
 /** Exports of font weight TextStyles to use correct font familiy */
