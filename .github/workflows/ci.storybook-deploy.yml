@@ -39,13 +39,13 @@ jobs:
               with:
                   push: true
                   tags: |
-                      ghcr.io/mary-initial/mary-initial-frontend:latest
-                      ghcr.io/mary-initial/mary-initial-frontend:build-${{ github.run_number }}
-                  cache-from: "type=registry,ref=ghcr.io/mary-initial/mary-initial-frontend:cache"
-                  cache-to: "type=registry,ref=ghcr.io/mary-initial/mary-initial-frontend:cache"
+                      ghcr.io/mary-initial/mary-initial-frontend/storybook:latest
+                      ghcr.io/mary-initial/mary-initial-frontend/storybook:build-${{ github.run_number }}
+                  cache-from: "type=registry,ref=ghcr.io/mary-initial/mary-initial-frontend/storybook:cache"
+                  cache-to: "type=registry,ref=ghcr.io/mary-initial/mary-initial-frontend/storybook:cache"
                   platforms: linux/amd64
                   context: .
-                  file: Dockerfile.storybook
+                  file: storybook.dockerfile
 
             - name: Export image tag
               id: export-tag
