@@ -1,5 +1,4 @@
 import { Tabs } from "expo-router";
-import { StyleSheet, View } from "react-native";
 import { useTheme } from "../../theme";
 
 export interface BottomTabsProps {
@@ -36,40 +35,15 @@ export const BottomTabs = ({ tabScreens }: BottomTabsProps) => {
           name={name}
           options={{
             title,
-            tabBarIcon: ({ focused }) => (
-              <View
-                style={[
-                  styles.container,
-                  {
-                    backgroundColor: focused
-                      ? theme.colors.buttons.standard.secondary
-                      : "transparent",
-                  },
-                ]}
-              >
-                {focused ? (
-                  <IconFill color={theme.colors.icon.standard} />
-                ) : (
-                  <Icon color={theme.colors.icon.standard.disabled} />
-                )}
-              </View>
-            ),
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <IconFill color={theme.colors.icon.standard.default} />
+              ) : (
+                <Icon color={theme.colors.icon.standard.disabled} />
+              ),
           }}
         />
       ))}
     </Tabs>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    position: "absolute",
-    alignItems: "center",
-    justifyContent: "center",
-    width: 72,
-    height: 72,
-    borderRadius: 999,
-    top: -12,
-    paddingBottom: 24,
-  },
-});
