@@ -3,11 +3,14 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-COPY lib/package.json ./
+COPY package.json package-lock.json ./
+COPY lib/package.json ./lib/package.json
 
-RUN npm install --no-audit --no-fund
+RUN npm ci --workspace=lib --include-workspace-root=false --no-audit --no-fund
 
-COPY lib/ .
+COPY lib/ ./lib
+
+WORKDIR /app/lib
 
 RUN npx storybook build --config-dir storybook/.storybook --output-dir /storybook-static
 

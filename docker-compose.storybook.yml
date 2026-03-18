@@ -2,7 +2,7 @@ services:
   storybook:
     build:
       context: .
-      dockerfile: Dockerfile.storybook
+      dockerfile: storybook.dockerfile
     ports:
       - "8080:80"
     restart: unless-stopped
