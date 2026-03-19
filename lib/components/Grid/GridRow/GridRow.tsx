@@ -26,7 +26,7 @@ export const GridRow = ({
           marginHorizontal: contained ? inner - outer : 0,
         },
       }),
-    [inner, outer]
+    [inner, outer, contained]
   );
 
   return (

@@ -1,5 +1,5 @@
 // Provider and hooks
-export { MaryUIProvider, useTheme } from "./context";
+export { MaryUIProvider, useTextStyles, useTheme } from "./context";
 export type { MaryUIProviderProps } from "./context";
 
 // Utilities

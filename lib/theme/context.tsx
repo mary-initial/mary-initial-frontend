@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -10,6 +11,7 @@ import {
   createThemeStyles,
   ScreenMode,
   Theme,
+  TypographyStyles,
   type BrandName,
   type ColorMode,
 } from "./core";
@@ -89,11 +91,16 @@ export function MaryUIProvider({
     styles,
     colorMode,
     screenMode,
-    setBrand: (brandName: BrandName) => {
-      setTheme(resolveTheme(brandName, screenMode, colorMode));
-    },
-    toggleColorMode: () =>
-      setColorMode((m) => (m === "light" ? "dark" : "light")),
+    setBrand: useCallback(
+      (brandName: BrandName) => {
+        setTheme(resolveTheme(brandName, screenMode, colorMode));
+      },
+      [setTheme, screenMode, colorMode]
+    ),
+    toggleColorMode: useCallback(
+      () => setColorMode((m) => (m === "light" ? "dark" : "light")),
+      [setColorMode]
+    ),
   };
 
   return (
@@ -109,4 +116,10 @@ export function useTheme(): ThemeContextValue {
   }
 
   return context;
+}
+
+export function useTextStyles(): TypographyStyles {
+  const { styles } = useTheme();
+
+  return styles.textStyles();
 }

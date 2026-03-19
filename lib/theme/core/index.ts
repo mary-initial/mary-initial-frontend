@@ -26,4 +26,5 @@ export const createThemeStyles = (theme: Theme | null): ThemeStyles =>
 export type { ButtonVariant } from "./button";
 export * from "./types";
 export { fontBold, fontLight, fontRegular } from "./typography";
+export type { TypographyStyles } from "./typography";
 
