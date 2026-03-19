@@ -15,14 +15,16 @@ export const GridRow = ({
   testID,
   contained = true,
 }: GridRowProps) => {
-  const { inner, outer } = useGridContext();
+  const { inner, outer, wrap } = useGridContext();
 
   const styles = useMemo(
     () =>
       StyleSheet.create({
         row: {
           flexDirection: "row",
-          flexWrap: "wrap",
+          flexWrap: wrap ? "wrap" : "nowrap",
+          maxWidth: "100%",
+          overflow: "scroll",
           marginHorizontal: contained ? inner - outer : 0,
         },
       }),

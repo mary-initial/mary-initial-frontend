@@ -32,6 +32,8 @@ exports[`GridCol DoubleSpan should match snapshot 1`] = `
             "flexDirection": "row",
             "flexWrap": "wrap",
             "marginHorizontal": 24,
+            "maxWidth": "100%",
+            "overflow": "scroll",
           },
           undefined,
         ]
@@ -100,6 +102,8 @@ exports[`GridCol MixedSpans should match snapshot 1`] = `
             "flexDirection": "row",
             "flexWrap": "wrap",
             "marginHorizontal": 24,
+            "maxWidth": "100%",
+            "overflow": "scroll",
           },
           undefined,
         ]
@@ -220,6 +224,8 @@ exports[`GridCol SingleColumn should match snapshot 1`] = `
             "flexDirection": "row",
             "flexWrap": "wrap",
             "marginHorizontal": 24,
+            "maxWidth": "100%",
+            "overflow": "scroll",
           },
           undefined,
         ]

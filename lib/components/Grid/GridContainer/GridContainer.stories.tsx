@@ -49,6 +49,39 @@ export const Default: Story = {
   },
 };
 
+export const NoWrap: Story = {
+  render: () => {
+    const { theme } = useTheme();
+    const { colStyles } = createStyles(theme);
+    return (
+      <GridContainer wrap={false}>
+        <GridRow>
+          <GridCol>
+            <View style={colStyles}>
+              <Text>Column 1</Text>
+            </View>
+          </GridCol>
+          <GridCol>
+            <View style={colStyles}>
+              <Text>Column 2</Text>
+            </View>
+          </GridCol>
+          <GridCol>
+            <View style={colStyles}>
+              <Text>Column 2</Text>
+            </View>
+          </GridCol>
+          <GridCol>
+            <View style={colStyles}>
+              <Text>Column 2</Text>
+            </View>
+          </GridCol>
+        </GridRow>
+      </GridContainer>
+    );
+  },
+};
+
 export const FullWidthSpan: Story = {
   render: () => {
     const { theme } = useTheme();

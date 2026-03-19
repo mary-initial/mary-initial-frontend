@@ -6,6 +6,7 @@ export interface GridContextValue {
   gutter: number;
   outer: number;
   inner: number;
+  wrap: boolean;
 }
 
 export const GridContext = createContext<GridContextValue | undefined>(
