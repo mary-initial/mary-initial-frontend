@@ -40,7 +40,7 @@ export const Default: Story = {
           </GridCol>
           <GridCol>
             <View style={colStyles}>
-              <Text>Column 1</Text>
+              <Text>Column 2</Text>
             </View>
           </GridCol>
         </GridRow>
