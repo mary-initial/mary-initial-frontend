@@ -60,17 +60,29 @@ export function MaryUIProvider({
   // Global styles resolved by theme and screen mode
   const styles = useMemo(() => createThemeStyles(theme), [theme]);
 
+  // Sync overrides from props
+  useEffect(() => {
+    if (colorModeOverride) setColorMode(colorModeOverride);
+  }, [colorModeOverride]);
+
+  useEffect(() => {
+    setScreenMode(resolveScreenMode());
+  }, [screenModeOverride, dimensions]);
+
+  useEffect(() => {
+    setTheme(resolveTheme(brandName, screenMode, colorMode));
+  }, [brandName, screenMode, colorMode]);
+
   // Window size listener
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
       "change",
       ({ window, screen }) => {
         setDimensions({ window, screen });
-        setScreenMode(resolveScreenMode());
       }
     );
     return () => subscription?.remove();
-  });
+  }, []);
 
   const value: ThemeContextValue = {
     theme,

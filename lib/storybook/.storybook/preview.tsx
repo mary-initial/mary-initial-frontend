@@ -2,12 +2,15 @@ import {
   DocsContainer,
   type DocsContainerProps,
 } from "@storybook/addon-docs/blocks";
-import type { Preview } from "@storybook/react-native";
+import { type Preview } from "@storybook/react-native";
 import type { PropsWithChildren } from "react";
+import { View, ViewStyle } from "react-native";
 import { themes } from "storybook/theming";
 import { MaryUIProvider } from "../../theme";
 import { BrandName, ColorMode, ScreenMode } from "../../theme/core";
 import { useThemeFonts } from "../../theme/fonts";
+import { mobileMaxWidth, tabletMaxWidth } from "../../theme/screen";
+import { colorTokens } from "../../theme/tokens/colors";
 
 function ThemedDocsContainer({
   children,
@@ -77,14 +80,37 @@ const preview: Preview = {
 
       useThemeFonts();
 
+      const screenViewStyle: ViewStyle = {
+        backgroundColor: colorTokens.marysLight.surface.standard.default,
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      };
+      let containerStyle: ViewStyle = {
+        backgroundColor: "#FFFFFF",
+        maxWidth: "auto",
+        width: "100%",
+        height: "100%",
+        paddingVertical: 16,
+      };
+
+      if (screenMode === "desktop") containerStyle.maxWidth = "100%";
+      else
+        containerStyle.maxWidth =
+          screenMode === "mobile" ? mobileMaxWidth : tabletMaxWidth;
+
       return (
-        <MaryUIProvider
-          brandName={brand}
-          colorModeOverride={colorMode}
-          screenModeOverride={screenMode}
-        >
-          <Story />
-        </MaryUIProvider>
+        <View style={screenViewStyle}>
+          <View style={containerStyle}>
+            <MaryUIProvider
+              brandName={brand}
+              colorModeOverride={colorMode}
+              screenModeOverride={screenMode}
+            >
+              <Story />
+            </MaryUIProvider>
+          </View>
+        </View>
       );
     },
   ],
