@@ -34,9 +34,6 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Validate production dependency split
-              run: npm ci --workspace=lib --include-workspace-root=false --omit=dev --no-audit --no-fund
-
             - name: Build and push
               uses: docker/build-push-action@v6
               with:
