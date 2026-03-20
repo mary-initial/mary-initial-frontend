@@ -6,6 +6,8 @@ import { radiusTokens } from "../tokens/radius";
 import { spacingTokens } from "../tokens/spacing";
 import { typographyTokens } from "../tokens/typography";
 import { ButtonStylesFactory } from "./button";
+import { ContentStylesFactory } from "./content";
+import { ResponsiveStylesFactory } from "./responsive";
 import { TypographyStylesFactory } from "./typography";
 
 export type BrandName = "marys" | "activity" | "information";
@@ -18,6 +20,8 @@ export type Brands = Record<BrandName, Record<ColorMode, BrandNameKey>>;
 export type ThemeStyles = {
   textStyles: TypographyStylesFactory;
   buttonStyles: ButtonStylesFactory;
+  contentStyles: ContentStylesFactory;
+  responsiveStyles: ResponsiveStylesFactory;
 };
 
 export type ThemeAnimations = typeof animationTokens;

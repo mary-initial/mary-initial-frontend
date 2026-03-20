@@ -15,8 +15,8 @@ describe("GridCol", () => {
   );
 
   test("renders children", () => {
-    const { SingleColumn } = composedStories;
-    const { getByText } = render(<SingleColumn />);
-    expect(getByText("span=1")).toBeTruthy();
+    const { Default } = composedStories;
+    const { getByText } = render(<Default />);
+    expect(getByText("Column")).toBeTruthy();
   });
 });

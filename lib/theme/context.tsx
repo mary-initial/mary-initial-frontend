@@ -15,6 +15,8 @@ import {
   type BrandName,
   type ColorMode,
 } from "./core";
+import { ContentStyles } from "./core/content";
+import { ResponsiveStyles } from "./core/responsive";
 import { type ThemeContextValue } from "./types";
 import { resolveTheme } from "./utils";
 
@@ -122,4 +124,16 @@ export function useTextStyles(): TypographyStyles {
   const { styles } = useTheme();
 
   return styles.textStyles();
+}
+
+export function useContentStyles(): ContentStyles {
+  const { styles } = useTheme();
+
+  return styles.contentStyles();
+}
+
+export function useResponsiveStyles(): ResponsiveStyles {
+  const { styles, screenMode } = useTheme();
+
+  return styles.responsiveStyles(screenMode);
 }

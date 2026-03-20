@@ -1,5 +1,75 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`GridCol Default should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 32,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "100%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "padding": 16,
+            }
+          }
+        >
+          <Text>
+            Column
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`GridCol DoubleSpan should match snapshot 1`] = `
 <View
   style={
@@ -19,7 +89,7 @@ exports[`GridCol DoubleSpan should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -31,9 +101,8 @@ exports[`GridCol DoubleSpan should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -44,7 +113,8 @@ exports[`GridCol DoubleSpan should match snapshot 1`] = `
           [
             {
               "flexBasis": "100%",
-              "maxWidth": "100%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -61,7 +131,147 @@ exports[`GridCol DoubleSpan should match snapshot 1`] = `
           }
         >
           <Text>
-            span=2 (full width on mobile)
+            Span is always 2
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GridCol FullWidthSpan should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 32,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "100%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "padding": 16,
+            }
+          }
+        >
+          <Text>
+            Span is always full width
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`GridCol HalfWidthSpan should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 32,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "padding": 16,
+            }
+          }
+        >
+          <Text>
+            Span is always half width
           </Text>
         </View>
       </View>
@@ -89,7 +299,7 @@ exports[`GridCol MixedSpans should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -101,9 +311,8 @@ exports[`GridCol MixedSpans should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -114,7 +323,8 @@ exports[`GridCol MixedSpans should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -140,7 +350,8 @@ exports[`GridCol MixedSpans should match snapshot 1`] = `
           [
             {
               "flexBasis": "100%",
-              "maxWidth": "100%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -166,7 +377,8 @@ exports[`GridCol MixedSpans should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -192,7 +404,7 @@ exports[`GridCol MixedSpans should match snapshot 1`] = `
 </View>
 `;
 
-exports[`GridCol SingleColumn should match snapshot 1`] = `
+exports[`GridCol SingleSpan should match snapshot 1`] = `
 <View
   style={
     [
@@ -211,7 +423,7 @@ exports[`GridCol SingleColumn should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -223,9 +435,8 @@ exports[`GridCol SingleColumn should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -236,7 +447,8 @@ exports[`GridCol SingleColumn should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -253,7 +465,7 @@ exports[`GridCol SingleColumn should match snapshot 1`] = `
           }
         >
           <Text>
-            span=1
+            Span is always 1
           </Text>
         </View>
       </View>

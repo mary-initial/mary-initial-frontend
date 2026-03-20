@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { StyleSheet, View, type ViewStyle } from "react-native";
 import { useTheme } from "../../../theme";
-import { GridContext, type GridContextValue } from "../GridContext";
+import { GridContext, GridMode, type GridContextValue } from "../GridContext";
 
 export interface GridContainerProps {
   children?: React.ReactNode;
-  wrap?: boolean;
+  wrapCols?: boolean;
+  gridMode?: GridMode;
   style?: ViewStyle;
   testID?: string;
 }
@@ -14,24 +15,24 @@ export const GridContainer = ({
   children,
   style,
   testID,
-  wrap,
+  wrapCols = true,
+  gridMode = GridMode.Normal,
 }: GridContainerProps) => {
   const { theme } = useTheme();
   const { outer, inner, gutter, columns } = theme.grid;
-
   const gridValue = useMemo<GridContextValue>(
-    () => ({ columns, gutter, outer, inner, wrap: wrap ?? true }),
-    [columns, gutter, outer, inner, wrap]
+    () => ({ columns, gutter, outer, inner, wrapCols: wrapCols, gridMode }),
+    [columns, gutter, outer, inner, wrapCols, gridMode]
   );
 
   const styles = useMemo(
     () =>
       StyleSheet.create({
         container: {
-          marginHorizontal: gutter / 2 - outer,
+          marginHorizontal: gridMode === GridMode.Normal ? inner : outer,
         },
       }),
-    [outer, gutter]
+    [inner, outer, gridMode]
   );
 
   return (

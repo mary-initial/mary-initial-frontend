@@ -1,4 +1,6 @@
 import { makeButtonStyles } from "./button";
+import { makeContentStyles } from "./content";
+import { makeResponsiveStyles } from "./responsive";
 import { Brands, Theme, ThemeStyles } from "./types";
 import { makeTypographyStyles } from "./typography";
 
@@ -21,6 +23,8 @@ export const createThemeStyles = (theme: Theme | null): ThemeStyles =>
   theme && {
     textStyles: makeTypographyStyles(theme),
     buttonStyles: makeButtonStyles(theme),
+    contentStyles: makeContentStyles(theme),
+    responsiveStyles: makeResponsiveStyles(),
   };
 
 export type { ButtonVariant } from "./button";

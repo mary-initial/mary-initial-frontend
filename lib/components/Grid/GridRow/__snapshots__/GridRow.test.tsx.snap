@@ -19,7 +19,7 @@ exports[`GridRow Default should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -31,9 +31,8 @@ exports[`GridRow Default should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -44,7 +43,8 @@ exports[`GridRow Default should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -70,103 +70,8 @@ exports[`GridRow Default should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
-              "paddingHorizontal": 8,
             },
-            undefined,
-          ]
-        }
-      >
-        <View
-          style={
             {
-              "backgroundColor": "#c5bea9",
-              "borderRadius": 8,
-              "padding": 16,
-            }
-          }
-        >
-          <Text>
-            Col 2
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`GridRow UnContained should match snapshot 1`] = `
-<View
-  style={
-    [
-      {
-        "backgroundColor": "transparent",
-        "flex": 1,
-      },
-      {
-        "backgroundColor": "white",
-      },
-    ]
-  }
-  testID="addon-backgrounds-container"
->
-  <View
-    style={
-      [
-        {
-          "marginHorizontal": 0,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        [
-          {
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "marginHorizontal": 0,
-            "maxWidth": "100%",
-            "overflow": "scroll",
-          },
-          undefined,
-        ]
-      }
-    >
-      <View
-        style={
-          [
-            {
-              "flexBasis": "50%",
-              "maxWidth": "50%",
-              "paddingHorizontal": 8,
-            },
-            undefined,
-          ]
-        }
-      >
-        <View
-          style={
-            {
-              "backgroundColor": "#c5bea9",
-              "borderRadius": 8,
-              "padding": 16,
-            }
-          }
-        >
-          <Text>
-            Col 1
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          [
-            {
-              "flexBasis": "50%",
-              "maxWidth": "50%",
               "paddingHorizontal": 8,
             },
             undefined,
@@ -211,7 +116,7 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -223,9 +128,8 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -236,7 +140,8 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -262,7 +167,8 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -288,7 +194,8 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -314,7 +221,8 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -340,7 +248,8 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -366,7 +275,8 @@ exports[`GridRow WrappedColumns should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,

@@ -1,34 +1,27 @@
 import { useMemo } from "react";
 import { StyleSheet, View, type ViewStyle } from "react-native";
-import { useGridContext } from "../GridContext";
+import { GridMode, useGridContext } from "../GridContext";
 
 export interface GridRowProps {
   children?: React.ReactNode;
-  contained?: boolean;
   style?: ViewStyle;
   testID?: string;
 }
 
-export const GridRow = ({
-  children,
-  style,
-  testID,
-  contained = true,
-}: GridRowProps) => {
-  const { inner, outer, wrap } = useGridContext();
+export const GridRow = ({ children, style, testID }: GridRowProps) => {
+  const { wrapCols, gutter, gridMode } = useGridContext();
 
   const styles = useMemo(
     () =>
       StyleSheet.create({
         row: {
           flexDirection: "row",
-          flexWrap: wrap ? "wrap" : "nowrap",
-          maxWidth: "100%",
-          overflow: "scroll",
-          marginHorizontal: contained ? inner - outer : 0,
+          flexWrap: wrapCols ? "wrap" : "nowrap",
+          overflow: wrapCols ? "hidden" : "scroll",
+          marginHorizontal: gridMode === GridMode.Normal ? -gutter / 2 : 0,
         },
       }),
-    [inner, outer, contained]
+    [gutter, wrapCols, gridMode]
   );
 
   return (

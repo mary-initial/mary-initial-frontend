@@ -1,5 +1,113 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`GridContainer Centered should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "white",
+      },
+    ]
+  }
+  testID="addon-backgrounds-container"
+>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 32,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
+          },
+          {
+            "marginBottom": 16,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            {
+              "display": "none",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          [
+            {
+              "flexBasis": "100%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "textAlign": "center",
+              }
+            }
+          >
+            Centered col (view in tablet/desktop mode)
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            {
+              "display": "none",
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
 exports[`GridContainer Default should match snapshot 1`] = `
 <View
   style={
@@ -19,7 +127,7 @@ exports[`GridContainer Default should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -31,9 +139,8 @@ exports[`GridContainer Default should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -44,7 +151,8 @@ exports[`GridContainer Default should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -70,7 +178,8 @@ exports[`GridContainer Default should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -96,7 +205,7 @@ exports[`GridContainer Default should match snapshot 1`] = `
 </View>
 `;
 
-exports[`GridContainer FullWidthSpan should match snapshot 1`] = `
+exports[`GridContainer Elevated should match snapshot 1`] = `
 <View
   style={
     [
@@ -115,7 +224,7 @@ exports[`GridContainer FullWidthSpan should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 8,
         },
         undefined,
       ]
@@ -126,12 +235,13 @@ exports[`GridContainer FullWidthSpan should match snapshot 1`] = `
         [
           {
             "flexDirection": "row",
-            "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
+            "flexWrap": "nowrap",
+            "marginHorizontal": 0,
             "overflow": "scroll",
           },
-          undefined,
+          {
+            "marginBottom": 16,
+          },
         ]
       }
     >
@@ -139,9 +249,12 @@ exports[`GridContainer FullWidthSpan should match snapshot 1`] = `
         style={
           [
             {
-              "flexBasis": "100%",
-              "maxWidth": "100%",
-              "paddingHorizontal": 8,
+              "flexBasis": "50%",
+            },
+            {
+              "marginRight": -16,
+              "paddingLeft": 0,
+              "paddingRight": 32,
             },
             undefined,
           ]
@@ -157,7 +270,113 @@ exports[`GridContainer FullWidthSpan should match snapshot 1`] = `
           }
         >
           <Text>
-            Full width column (span=2 on mobile)
+            Useful for carousel like effect
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "marginRight": -16,
+              "paddingLeft": 0,
+              "paddingRight": 32,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text>
+            Column 2
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "marginRight": -16,
+              "paddingLeft": 0,
+              "paddingRight": 32,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text>
+            Column 3
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "marginHorizontal": 0,
+            "overflow": "scroll",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "100%",
+            },
+            {
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "textAlign": "center",
+              }
+            }
+          >
+            Full width
           </Text>
         </View>
       </View>
@@ -166,7 +385,7 @@ exports[`GridContainer FullWidthSpan should match snapshot 1`] = `
 </View>
 `;
 
-exports[`GridContainer MixedContent should match snapshot 1`] = `
+exports[`GridContainer GridModesMixed should match snapshot 1`] = `
 <View
   style={
     [
@@ -185,97 +404,7 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
     style={
       [
         {
-          "bottom": 0,
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        [
-          {
-            "marginHorizontal": 0,
-          },
-          {
-            "height": "100%",
-          },
-        ]
-      }
-    >
-      <View
-        style={
-          [
-            {
-              "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginHorizontal": 24,
-              "maxWidth": "100%",
-              "overflow": "scroll",
-            },
-            {
-              "height": "100%",
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            [
-              {
-                "flexBasis": "50%",
-                "maxWidth": "50%",
-                "paddingHorizontal": 8,
-              },
-              {
-                "height": "100%",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              {
-                "backgroundColor": "rgba(255, 0, 0, 0.1)",
-                "height": "100%",
-              }
-            }
-          />
-        </View>
-        <View
-          style={
-            [
-              {
-                "flexBasis": "50%",
-                "maxWidth": "50%",
-                "paddingHorizontal": 8,
-              },
-              {
-                "height": "100%",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              {
-                "backgroundColor": "rgba(255, 0, 0, 0.1)",
-                "height": "100%",
-              }
-            }
-          />
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      [
-        {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -287,11 +416,12 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
-          undefined,
+          {
+            "marginBottom": 16,
+          },
         ]
       }
     >
@@ -300,26 +430,51 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
           ]
         }
       >
-        <View
-          style={
-            {
-              "marginBottom": 16,
-            }
-          }
-        >
+        <View>
           <Text>
-            Content that are not contained should align with contained content
+            Normal grid - text is aligned with elevated
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View>
+          <Text>
+            Normal grid
           </Text>
         </View>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 8,
+        },
+        undefined,
+      ]
+    }
+  >
     <View
       style={
         [
@@ -327,10 +482,11 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
             "flexDirection": "row",
             "flexWrap": "wrap",
             "marginHorizontal": 0,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "overflow": "hidden",
           },
-          undefined,
+          {
+            "marginBottom": 16,
+          },
         ]
       }
     >
@@ -339,8 +495,11 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
-              "paddingHorizontal": 8,
+            },
+            {
+              "marginRight": -16,
+              "paddingLeft": 0,
+              "paddingRight": 32,
             },
             undefined,
           ]
@@ -357,39 +516,24 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
               {
                 "paddingHorizontal": 24,
               },
-              {
-                "marginBottom": 16,
-              },
             ]
           }
         >
           <Text>
-            Contained text should align.
+            Elevated grid columns
           </Text>
         </View>
       </View>
-    </View>
-    <View
-      style={
-        [
-          {
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "marginHorizontal": 0,
-            "maxWidth": "100%",
-            "overflow": "scroll",
-          },
-          undefined,
-        ]
-      }
-    >
       <View
         style={
           [
             {
-              "flexBasis": "100%",
-              "maxWidth": "100%",
-              "paddingHorizontal": 8,
+              "flexBasis": "50%",
+            },
+            {
+              "marginRight": -16,
+              "paddingLeft": 0,
+              "paddingRight": 32,
             },
             undefined,
           ]
@@ -406,27 +550,165 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
               {
                 "paddingHorizontal": 24,
               },
-              {
-                "marginBottom": 16,
-              },
             ]
           }
         >
           <Text>
-            Contained text should align.
+            Works well with carousel
           </Text>
         </View>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 8,
+        },
+        undefined,
+      ]
+    }
+  >
     <View
       style={
         [
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": 0,
+            "overflow": "hidden",
+          },
+          {
+            "marginBottom": 16,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "100%",
+            },
+            {
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#c5bea9",
+                "borderRadius": 8,
+                "paddingVertical": 16,
+              },
+              {
+                "paddingHorizontal": 24,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              {
+                "textAlign": "center",
+              }
+            }
+          >
+            Elevated grid single columns
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 32,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
+          },
+          {
+            "marginBottom": 16,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View>
+          <Text>
+            Normal grid
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View>
+          <Text>
+            Normal grid
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "marginHorizontal": 8,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": 0,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -436,9 +718,12 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
         style={
           [
             {
-              "flexBasis": "100%",
-              "maxWidth": "100%",
-              "paddingHorizontal": 8,
+              "flexBasis": "50%",
+            },
+            {
+              "marginRight": -16,
+              "paddingLeft": 0,
+              "paddingRight": 32,
             },
             undefined,
           ]
@@ -446,13 +731,54 @@ exports[`GridContainer MixedContent should match snapshot 1`] = `
       >
         <View
           style={
-            {
-              "marginBottom": 16,
-            }
+            [
+              {
+                "backgroundColor": "#c5bea9",
+                "borderRadius": 8,
+                "paddingVertical": 16,
+              },
+              {
+                "paddingHorizontal": 24,
+              },
+            ]
           }
         >
           <Text>
-            Content
+            Elevated grid columns
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "marginRight": -16,
+              "paddingLeft": 0,
+              "paddingRight": 32,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#c5bea9",
+                "borderRadius": 8,
+                "paddingVertical": 16,
+              },
+              {
+                "paddingHorizontal": 24,
+              },
+            ]
+          }
+        >
+          <Text>
+            Elevated grid columns
           </Text>
         </View>
       </View>
@@ -480,7 +806,7 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -492,9 +818,8 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -505,7 +830,8 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -536,7 +862,8 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -569,9 +896,8 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "wrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
-            "overflow": "scroll",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
           },
           undefined,
         ]
@@ -582,7 +908,8 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -591,11 +918,16 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
       >
         <View
           style={
-            {
-              "backgroundColor": "#c5bea9",
-              "borderRadius": 8,
-              "paddingVertical": 16,
-            }
+            [
+              {
+                "backgroundColor": "#c5bea9",
+                "borderRadius": 8,
+                "paddingVertical": 16,
+              },
+              {
+                "marginBottom": 16,
+              },
+            ]
           }
         >
           <Text>
@@ -608,7 +940,54 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#c5bea9",
+                "borderRadius": 8,
+                "paddingVertical": 16,
+              },
+              {
+                "marginBottom": 16,
+              },
+            ]
+          }
+        >
+          <Text>
+            Row 2, Col 2
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": -8,
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -625,7 +1004,34 @@ exports[`GridContainer MultipleRows should match snapshot 1`] = `
           }
         >
           <Text>
-            Row 2, Col 2
+            Row 3, Col 1
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text>
+            Row 3, Col 2
           </Text>
         </View>
       </View>
@@ -653,7 +1059,7 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
     style={
       [
         {
-          "marginHorizontal": 0,
+          "marginHorizontal": 32,
         },
         undefined,
       ]
@@ -665,8 +1071,7 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
           {
             "flexDirection": "row",
             "flexWrap": "nowrap",
-            "marginHorizontal": 24,
-            "maxWidth": "100%",
+            "marginHorizontal": -8,
             "overflow": "scroll",
           },
           undefined,
@@ -678,7 +1083,8 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -704,7 +1110,8 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -730,7 +1137,8 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -747,7 +1155,7 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
           }
         >
           <Text>
-            Column 2
+            Column 3
           </Text>
         </View>
       </View>
@@ -756,7 +1164,8 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
           [
             {
               "flexBasis": "50%",
-              "maxWidth": "50%",
+            },
+            {
               "paddingHorizontal": 8,
             },
             undefined,
@@ -773,7 +1182,61 @@ exports[`GridContainer NoWrap should match snapshot 1`] = `
           }
         >
           <Text>
-            Column 2
+            Column 4
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text>
+            Column 5
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flexBasis": "50%",
+            },
+            {
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#c5bea9",
+              "borderRadius": 8,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text>
+            Column 6
           </Text>
         </View>
       </View>
