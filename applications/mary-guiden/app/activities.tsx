@@ -1,8 +1,9 @@
 import {
   GridCol,
   GridContainer,
+  GridMode,
   GridRow,
-  useContentAlignment,
+  useContentStyles,
   useTextStyles,
   useTheme,
 } from "@marys-ui";
@@ -13,9 +14,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const ElevatedContent = () => {
   const { theme } = useTheme();
   const textStyles = useTextStyles();
-  const contentStyles: ViewStyle = useMemo(
+  const contentStyles = useContentStyles();
+  const elevatedContentStyles: ViewStyle = useMemo(
     () => ({
-      paddingHorizontal: theme.container.card.px,
       paddingBottom: theme.container.card.pyBottom,
       marginBottom: 24,
       paddingTop: theme.container.card.pyTopSmall,
@@ -26,7 +27,7 @@ const ElevatedContent = () => {
   );
 
   return (
-    <View style={useContentAlignment(contentStyles)}>
+    <View style={[contentStyles.container, elevatedContentStyles]}>
       <Text style={[textStyles.titleM, { paddingBottom: 8 }]}>
         Overskrift elevated
       </Text>
@@ -49,31 +50,35 @@ export default function Activities() {
     /* TODO: Create surface layer components and*/
     <View style={{ backgroundColor: theme.colors.surface.standard.default }}>
       <SafeAreaView>
-        <GridContainer
+        <View
           style={{
             paddingTop: theme.container.zone.pyTop,
             paddingBottom: theme.container.zone.pyBottom,
           }}
         >
-          <GridRow>
-            <GridCol span={2}>
-              {/* TODO: Vertical spacing components or styles */}
-              <View style={{ marginBottom: 24 }}>
-                <Text style={[textStyles.displayM, { paddingBottom: 8 }]}>
-                  Overskrift her
-                </Text>
-                <Text style={[textStyles.bodyM, { paddingBottom: 8 }]}>
-                  Tekst der omhandler aktiviteter. En kort beskrivelse kun.
-                </Text>
-              </View>
-            </GridCol>
-          </GridRow>
-          <GridRow contained={false}>
-            <GridCol span={2}>
-              <ElevatedContent />
-            </GridCol>
-          </GridRow>
-        </GridContainer>
+          <GridContainer>
+            <GridRow>
+              <GridCol span={2}>
+                {/* TODO: Vertical spacing components or styles */}
+                <View style={{ marginBottom: 24 }}>
+                  <Text style={[textStyles.displayM, { paddingBottom: 8 }]}>
+                    Overskrift her
+                  </Text>
+                  <Text style={textStyles.bodyM}>
+                    Tekst der omhandler aktiviteter. En kort beskrivelse kun.
+                  </Text>
+                </View>
+              </GridCol>
+            </GridRow>
+          </GridContainer>
+          <GridContainer gridMode={GridMode.Elevated}>
+            <GridRow>
+              <GridCol span={theme.grid.columns}>
+                <ElevatedContent />
+              </GridCol>
+            </GridRow>
+          </GridContainer>
+        </View>
       </SafeAreaView>
     </View>
   );
