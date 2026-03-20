@@ -17,6 +17,7 @@ import {
 } from "./core";
 import { ContentStyles } from "./core/content";
 import { ResponsiveStyles } from "./core/responsive";
+import { mobileMaxWidth, tabletMaxWidth } from "./screen";
 import { type ThemeContextValue } from "./types";
 import { resolveTheme } from "./utils";
 
@@ -52,8 +53,8 @@ export function MaryUIProvider({
   const resolveScreenMode = () => {
     if (screenModeOverride) return screenModeOverride;
 
-    if (dimensions.window.width < 744) return "mobile";
-    else if (dimensions.window.width < 1280) return "tablet";
+    if (dimensions.window.width <= mobileMaxWidth) return "mobile";
+    else if (dimensions.window.width < tabletMaxWidth) return "tablet";
     else return "desktop";
   };
   const [screenMode, setScreenMode] = useState<ScreenMode>(resolveScreenMode());

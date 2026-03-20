@@ -4,10 +4,6 @@ import { useTheme } from "../../../theme";
 import { ScreenMode } from "../../../theme/core";
 import { GridMode, useGridContext } from "../GridContext";
 
-export type GridColSpans = {
-  [key in ScreenMode]?: number;
-};
-
 export interface GridColProps {
   children?: React.ReactNode;
   span?: number;
