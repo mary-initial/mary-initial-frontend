@@ -7,3 +7,6 @@ export { makeStyles, rem } from "./utils";
 
 // Core
 export type { ButtonVariant, Theme } from "./core";
+
+// Fonts
+export { useThemeFonts } from "./fonts";

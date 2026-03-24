@@ -95,7 +95,7 @@ exports[`Button Clickable should match snapshot 1`] = `
             [
               {
                 "color": "#ffffff",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -212,7 +212,7 @@ exports[`Button Compact should match snapshot 1`] = `
             [
               {
                 "color": "#ffffff",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -330,7 +330,7 @@ exports[`Button CompactDisabled should match snapshot 1`] = `
             [
               {
                 "color": "#ffffff",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -446,7 +446,7 @@ exports[`Button Primary should match snapshot 1`] = `
             [
               {
                 "color": "#ffffff",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -563,7 +563,7 @@ exports[`Button PrimaryDisabled should match snapshot 1`] = `
             [
               {
                 "color": "#ffffff",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -679,7 +679,7 @@ exports[`Button PrimaryOnColor should match snapshot 1`] = `
             [
               {
                 "color": "#ffffff",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -795,7 +795,7 @@ exports[`Button Secondary should match snapshot 1`] = `
             [
               {
                 "color": "#1c1c1c",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -912,7 +912,7 @@ exports[`Button SecondaryDisabled should match snapshot 1`] = `
             [
               {
                 "color": "#1c1c1c",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -1028,7 +1028,7 @@ exports[`Button SecondaryOnColor should match snapshot 1`] = `
             [
               {
                 "color": "#1c1c1c",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -1144,7 +1144,7 @@ exports[`Button Tertiary should match snapshot 1`] = `
             [
               {
                 "color": "#1c1c1c",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",
@@ -1261,7 +1261,7 @@ exports[`Button TertiaryDisabled should match snapshot 1`] = `
             [
               {
                 "color": "#1c1c1c",
-                "fontFamily": "Inter-Regular",
+                "fontFamily": "Mari-Regular",
                 "fontSize": 16,
                 "fontStyle": "normal",
                 "fontWeight": "400",

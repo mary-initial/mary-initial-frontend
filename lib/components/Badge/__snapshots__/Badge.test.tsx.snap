@@ -146,7 +146,7 @@ exports[`Badge LargeActiveNumber should match snapshot 1`] = `
         style={
           [
             {
-              "fontFamily": "Inter-Regular",
+              "fontFamily": "Mari-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
               "fontWeight": "400",
@@ -362,7 +362,7 @@ exports[`Badge LargeDisabledNumber should match snapshot 1`] = `
         style={
           [
             {
-              "fontFamily": "Inter-Regular",
+              "fontFamily": "Mari-Regular",
               "fontSize": 16,
               "fontStyle": "normal",
               "fontWeight": "400",

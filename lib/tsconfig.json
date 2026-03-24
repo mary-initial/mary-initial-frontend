@@ -20,7 +20,7 @@
     "skipLibCheck": true,
     "typeRoots": ["jest", "react-test-renderer"]
   },
-  "include": ["./index.ts", "./plugin.ts", "icons", "types"],
+  "include": ["./index.ts", "icons", "types"],
   "exclude": [
     "./**/__tests__",
     "./**/__fixtures__",

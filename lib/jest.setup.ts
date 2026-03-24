@@ -3,7 +3,7 @@ import { setProjectAnnotations } from "@storybook/react";
 import * as previewAnnotations from "./storybook/.rnstorybook/preview";
 
 jest.useFakeTimers();
-jest.mock("./plugin");
+jest.mock("./theme/fonts.ts");
 
 const annotations = setProjectAnnotations([previewAnnotations]);
 
