@@ -8,26 +8,29 @@ import {
   useTheme,
 } from "@marys-ui";
 import { useEffect, useMemo } from "react";
-import { Text, View, ViewStyle } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ElevatedContent = () => {
   const { theme } = useTheme();
   const textStyles = useTextStyles();
   const contentStyles = useContentStyles();
-  const elevatedContentStyles: ViewStyle = useMemo(
-    () => ({
-      paddingBottom: theme.container.card.pyBottom,
-      marginBottom: 24,
-      paddingTop: theme.container.card.pyTopSmall,
-      backgroundColor: theme.colors.surface.standard.elevated,
-      borderRadius: theme.radius.cardStandard,
-    }),
+  const styles = useMemo(
+    () =>
+      StyleSheet.create({
+        elevated: {
+          paddingBottom: theme.container.card.pyBottom,
+          marginBottom: 24,
+          paddingTop: theme.container.card.pyTopSmall,
+          backgroundColor: theme.colors.surface.standard.elevated,
+          borderRadius: theme.radius.cardStandard,
+        },
+      }),
     [theme]
   );
 
   return (
-    <View style={[contentStyles.container, elevatedContentStyles]}>
+    <View style={[contentStyles.container, styles.elevated]}>
       <Text style={[textStyles.titleM, { paddingBottom: 8 }]}>
         Overskrift elevated
       </Text>
@@ -47,7 +50,7 @@ export default function Activities() {
   }, [setBrand]);
 
   return (
-    /* TODO: Create surface layer components and*/
+    /* TODO: Create surface layer components */
     <View style={{ backgroundColor: theme.colors.surface.standard.default }}>
       <SafeAreaView>
         <View
